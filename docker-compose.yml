@@ -1,7 +1,8 @@
 version: "2"
 volumes:
   config:
-  ssh:
+  userkeys:
+  hostkeys:
 services:
   homeassistant:
     image: homeassistant/raspberrypi4-homeassistant:stable
@@ -22,6 +23,7 @@ services:
       - 2222:22/tcp
     volumes:
       - config:/config
-      - ssh:/root/.ssh
+      - userkeys:/root/.ssh
+      - hostkeys:/etc/ssh
     environment:
       HC_BASEPATH: /config
