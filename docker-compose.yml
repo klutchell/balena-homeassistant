@@ -7,19 +7,19 @@ services:
     network_mode: host
     privileged: true
     volumes:
-      - "config:/config"
+      - config:/config
     devices:
-      - "/dev:/dev"
-      - "/dev/serial/by-id/usb-0658_0200-if00:/dev/zwave"
+      - /dev:/dev
+      - /dev/serial/by-id/usb-0658_0200-if00:/dev/zwave
   mqtt:
     image: arm64v8/eclipse-mosquitto
     ports:
-      - "1883:1883"
+      - 1883:1883
   hass-configurator:
-    image: "causticlab/hass-configurator-docker:arm"
+    image: causticlab/hass-configurator-docker:arm
     ports:
-      - "8080:3218"
+      - 8080:3218
     volumes:
-      - "config:/hass-config"
+      - config:/hass-config
     environment:
-      - HC_BASEPATH=/hass-config
+      HC_BASEPATH: /hass-config
