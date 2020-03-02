@@ -10,9 +10,6 @@ services:
     privileged: true
     volumes:
       - config:/config
-    devices:
-      - /dev:/dev
-      - /dev/serial/by-id/usb-0658_0200-if00:/dev/zwave
   mqtt:
     image: arm64v8/eclipse-mosquitto
     ports:
@@ -25,5 +22,3 @@ services:
       - config:/config
       - userkeys:/root/.ssh
       - hostkeys:/etc/ssh
-    environment:
-      HC_BASEPATH: /config
