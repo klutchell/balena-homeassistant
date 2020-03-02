@@ -26,6 +26,17 @@ Application envionment variables apply to all services within the application, a
 
 ## Usage
 
+Use VS Code Remote to easily edit configuration files.
+
+<https://code.visualstudio.com/docs/remote/remote-overview>
+
+```ssh
+Host homeassistant
+    HostName <device ip>
+    User root
+    Port 2222
+```
+
 ## Contributing
 
 Please open an issue or submit a pull request with any features, fixes, or changes.
