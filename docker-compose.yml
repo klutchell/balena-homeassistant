@@ -1,0 +1,27 @@
+version: "2"
+volumes:
+  config:
+services:
+  homeassistant:
+    image: homeassistant/raspberrypi4-homeassistant:stable
+    network_mode: host
+    ports:
+      - 80:8123
+    privileged: true
+    volumes:
+      - "config:/config"
+    devices:
+      - "/dev:/dev"
+      - "/dev/serial/by-id/usb-0658_0200-if00:/dev/zwave"
+  mqtt:
+    image: arm64v8/eclipse-mosquitto
+    ports:
+      - "1883:1883"
+  hass-configurator:
+    image: "causticlab/hass-configurator-docker:arm"
+    ports:
+      - "8080:3218"
+    volumes:
+      - "config:/hass-config"
+    environment:
+      - HC_BASEPATH=/hass-config
