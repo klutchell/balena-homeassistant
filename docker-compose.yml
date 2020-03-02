@@ -1,6 +1,7 @@
 version: "2"
 volumes:
   config:
+  ssh:
 services:
   homeassistant:
     image: homeassistant/raspberrypi4-homeassistant:stable
@@ -15,11 +16,12 @@ services:
     image: arm64v8/eclipse-mosquitto
     ports:
       - 1883:1883
-  hass-configurator:
-    image: causticlab/hass-configurator-docker:arm
+  ssh:
+    build: ssh
     ports:
-      - 8080:3218
+      - 2222:22/tcp
     volumes:
-      - config:/hass-config
+      - config:/config
+      - ssh:/root/.ssh
     environment:
-      HC_BASEPATH: /hass-config
+      HC_BASEPATH: /config
