@@ -9,6 +9,7 @@ RUN apt-get update \
     git \
     openssh-server \
     python-minimal \
+    sqlite3 \
     tar \
     tzdata \
     && apt-get clean \
