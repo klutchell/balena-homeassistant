@@ -17,7 +17,6 @@ fi
 chown -R root:root /keys
 chmod -R 700 /keys
 
-echo "export HASS_SERVER=http://$(route -n | awk '/UG[ \t]/{print $2}')" | tee -a /etc/profile
 echo 'cd /config' | tee -a /etc/profile
 
 exec "$@"

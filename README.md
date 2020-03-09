@@ -32,8 +32,8 @@ Use VS Code Remote to easily edit configuration files.
 <https://code.visualstudio.com/docs/remote/remote-overview>
 
 ```ssh
-Host homeassistant
-    HostName <device ip>
+Host homeassistant.local
+    HostName homeassistant.local
     User root
     Port 2222
 ```
