@@ -16,13 +16,14 @@ To get started you'll first need to sign up for a free balenaCloud account and f
 
 Once your account is set up, deployment is carried out by downloading the project and pushing it to your device either via Git or the balena CLI.
 
-### Application Environment Variables
+### Environment Variables
 
-Application envionment variables apply to all services within the application, and can be applied fleet-wide to apply to multiple devices.
-
-|Name|Example|Purpose|
-|---|---|---|
-|`TZ`|`America/Toronto`|(optional) inform services of the [timezone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) in your location|
+|Service|Name|Example|Purpose|
+|---|---|---|---|
+|all|`TZ`|`America/Toronto`|(optional) inform services of the [timezone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) in your location|
+|`cli`|`HASS_SERVER`|`http://homeassistant.local:8123`|(optional) specify homassistant server endpoint|
+|`cli`|`HASS_TOKEN`|`longandsafesecret`|(optional) specify homeassistant server long-lived access token|
+|`cli`|`AUTHORIZED_KEYS_URL`|`https://github.com/<username>.keys`|(optional) provide a url to a list of public ssh keys for authentication|
 
 ## Usage
 

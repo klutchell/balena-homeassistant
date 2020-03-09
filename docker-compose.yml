@@ -1,8 +1,7 @@
 version: "2"
 volumes:
   config:
-  userkeys:
-  hostkeys:
+  keys:
 services:
   homeassistant:
     image: homeassistant/raspberrypi4-homeassistant:stable
@@ -14,11 +13,10 @@ services:
     image: arm64v8/eclipse-mosquitto
     ports:
       - 1883:1883
-  ssh:
-    build: ssh
+  cli:
+    build: cli
     ports:
       - 2222:22/tcp
     volumes:
       - config:/config
-      - userkeys:/root/.ssh
-      - hostkeys:/etc/ssh
+      - keys:/keys
