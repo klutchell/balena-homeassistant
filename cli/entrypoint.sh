@@ -17,6 +17,8 @@ fi
 chown -R root:root /keys
 chmod -R 700 /keys
 
-echo 'cd /config' | tee -a /etc/profile
+echo "export HASS_SERVER=${HASS_SERVER}" | tee -a /etc/profile
+echo "export HASS_TOKEN=${HASS_TOKEN}" | tee -a /etc/profile
+echo "cd /config" | tee -a /etc/profile
 
 exec "$@"
