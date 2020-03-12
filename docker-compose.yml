@@ -1,7 +1,6 @@
 version: "2"
 volumes:
   config:
-  keys:
 services:
   homeassistant:
     image: homeassistant/raspberrypi4-homeassistant:stable
@@ -19,4 +18,3 @@ services:
       - 2222:22/tcp
     volumes:
       - config:/config
-      - keys:/keys
