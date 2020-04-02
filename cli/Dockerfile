@@ -4,7 +4,6 @@ ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get update \
     && apt-get install --no-install-recommends -y \
-    augeas-tools \
     build-essential \
     ca-certificates \
     curl \
@@ -17,13 +16,8 @@ RUN apt-get update \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* \
     && rm -v /etc/ssh/ssh_host_* \
-    && augtool set /files/etc/ssh/sshd_config/HostKey[1] /config/.ssh/ssh_host_rsa_key \
-    && augtool set /files/etc/ssh/sshd_config/HostKey[2] /config/.ssh/ssh_host_dsa_key \
-    && augtool set /files/etc/ssh/sshd_config/HostKey[3] /config/.ssh/ssh_host_ecdsa_key \
-    && augtool set /files/etc/ssh/sshd_config/HostKey[4] /config/.ssh/ssh_host_ed25519_key \
-    && augtool set /files/etc/ssh/sshd_config/AuthorizedKeysFile /config/.ssh/authorized_keys \
-    && augtool set /files/etc/ssh/sshd_config/PubkeyAuthentication yes \
-    && augtool set /files/etc/ssh/sshd_config/PasswordAuthentication no \
+    && sed -r 's|^[# ]*PubkeyAuthentication .*|PubkeyAuthentication yes|g' -i /etc/ssh/sshd_config \
+    && sed -r 's|^[# ]*PasswordAuthentication .*|PubkeyAuthentication no|g' -i /etc/ssh/sshd_config \
     && pip3 install homeassistant-cli
 
 VOLUME /run/sshd
