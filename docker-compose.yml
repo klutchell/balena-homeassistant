@@ -15,6 +15,6 @@ services:
   cli:
     build: cli
     ports:
-      - 2222:22/tcp
+      - 22:22/tcp
     volumes:
       - config:/config
