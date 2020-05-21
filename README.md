@@ -1,6 +1,6 @@
 # balena-homeassistant
 
-homeassistant stack for balenaCloud
+[homeassistant](https://www.home-assistant.io/) stack for balenaCloud
 
 ## Requirements
 
@@ -18,25 +18,18 @@ Once your account is set up, deployment is carried out by downloading the projec
 
 ### Environment Variables
 
-|Service|Name|Example|Purpose|
-|---|---|---|---|
-|all|`TZ`|`America/Toronto`|(optional) inform services of the [timezone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) in your location|
-|`cli`|`HASS_SERVER`|`http://homeassistant.local:8123`|(optional) specify homassistant server endpoint|
-|`cli`|`HASS_TOKEN`|`longandsafesecret`|(optional) specify homeassistant server long-lived access token|
-|`cli`|`AUTHORIZED_KEYS_URL`|`https://github.com/<username>.keys`|(optional) provide a url to a list of public ssh keys for authentication|
+|Name|Example|Purpose|
+|---|---|---|
+|`TZ`|`America/Toronto`|(optional) inform services of the [timezone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) in your location|
+|`HASS_SERVER`|`http://homeassistant.local:8123`|(optional) specify homassistant server endpoint|
+|`HASS_TOKEN`|`longandsafesecret`|(optional) specify homeassistant server long-lived access token|
+|`AUTHORIZED_KEYS_URL`|`https://github.com/<username>.keys`|(optional) provide a url to a list of public ssh keys for authentication|
 
 ## Usage
 
-Use VS Code Remote to easily edit configuration files.
+### enable duplicati
 
-<https://code.visualstudio.com/docs/remote/remote-overview>
-
-```ssh
-Host homeassistant.local
-    HostName homeassistant.local
-    User root
-    Port 2222
-```
+Connect to `http://<device-ip>:8200` and configure a new backup using any online service you prefer as the Destination and `/source` as Source Data.
 
 ## Contributing
 
@@ -46,11 +39,15 @@ Please open an issue or submit a pull request with any features, fixes, or chang
 
 Kyle Harding <https://klutchell.dev>
 
+[Buy me a beer](https://kyles-tip-jar.myshopify.com/cart/31356319498262:1?channel=buy_button)
+
+[Buy me a craft beer](https://kyles-tip-jar.myshopify.com/cart/31356317859862:1?channel=buy_button)
+
 ## Acknowledgments
 
-- <https://home-assistant.io>
-- <https://mosquitto.org/>
-- <https://github.com/CausticLab/hass-configurator-docker>
+- <https://hub.docker.com/r/homeassistant/raspberrypi4-homeassistant>
+- <https://hub.docker.com/r/arm64v8/eclipse-mosquitto>
+- <https://hub.docker.com/r/linuxserver/duplicati>
 
 ## License
 

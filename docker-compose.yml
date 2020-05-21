@@ -1,13 +1,18 @@
 version: "2"
 volumes:
   config:
+  duplicati:
+
 services:
+  # https://hub.docker.com/r/homeassistant/raspberrypi4-homeassistant
   homeassistant:
     image: homeassistant/raspberrypi4-homeassistant:stable
     network_mode: host
     privileged: true
     volumes:
       - config:/config
+
+  # https://hub.docker.com/r/arm64v8/eclipse-mosquitto
   mqtt:
     image: arm64v8/eclipse-mosquitto
     ports:
@@ -18,3 +23,16 @@ services:
       - 22:22/tcp
     volumes:
       - config:/config
+
+  # https://hub.docker.com/r/linuxserver/duplicati
+  duplicati:
+    image: linuxserver/duplicati:arm64v8-latest
+    environment:
+      PUID: "0"
+      PGID: "0"
+      CLI_ARGS: --webservice-interface=any
+    ports:
+      - 8200:8200/tcp
+    volumes:
+      - duplicati:/config
+      - config:/source/homeassistant:ro
