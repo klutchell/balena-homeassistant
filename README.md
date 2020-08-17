@@ -21,9 +21,6 @@ Once your account is set up, deployment is carried out by downloading the projec
 |Name|Example|Purpose|
 |---|---|---|
 |`TZ`|`America/Toronto`|(optional) inform services of the [timezone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) in your location|
-|`HASS_SERVER`|`http://homeassistant.local:8123`|(optional) specify homassistant server endpoint|
-|`HASS_TOKEN`|`longandsafesecret`|(optional) specify homeassistant server long-lived access token|
-|`AUTHORIZED_KEYS_URL`|`https://github.com/<username>.keys`|(optional) provide a url to a list of public ssh keys for authentication|
 
 ## Usage
 
@@ -57,8 +54,10 @@ Kyle Harding <https://klutchell.dev>
 
 ## Acknowledgments
 
-- <https://hub.docker.com/r/homeassistant/raspberrypi4-homeassistant>
-- <https://hub.docker.com/r/arm64v8/eclipse-mosquitto>
+- <https://hub.docker.com/r/homeassistant/home-assistant>
+- <https://hub.docker.com/_/eclipse-mosquitto>
+- <https://hub.docker.com/r/causticlab/hass-configurator-docker>
+- <https://hub.docker.com/r/codercom/code-server>
 - <https://hub.docker.com/r/linuxserver/duplicati>
 
 ## License
