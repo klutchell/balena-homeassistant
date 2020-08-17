@@ -1,6 +1,6 @@
 # balena-homeassistant
 
-homeassistant stack for balenaCloud
+[homeassistant](https://www.home-assistant.io/) stack for balenaCloud
 
 ## Requirements
 
@@ -16,13 +16,14 @@ To get started you'll first need to sign up for a free balenaCloud account and f
 
 Once your account is set up, deployment is carried out by downloading the project and pushing it to your device either via Git or the balena CLI.
 
-### Application Environment Variables
-
-Application envionment variables apply to all services within the application, and can be applied fleet-wide to apply to multiple devices.
+### Environment Variables
 
 |Name|Example|Purpose|
 |---|---|---|
 |`TZ`|`America/Toronto`|(optional) inform services of the [timezone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) in your location|
+|`HASS_SERVER`|`http://homeassistant.local:8123`|(optional) specify homassistant server endpoint|
+|`HASS_TOKEN`|`longandsafesecret`|(optional) specify homeassistant server long-lived access token|
+|`AUTHORIZED_KEYS_URL`|`https://github.com/<username>.keys`|(optional) provide a url to a list of public ssh keys for authentication|
 
 ## Usage
 
@@ -50,11 +51,15 @@ Please open an issue or submit a pull request with any features, fixes, or chang
 
 Kyle Harding <https://klutchell.dev>
 
+[Buy me a beer](https://kyles-tip-jar.myshopify.com/cart/31356319498262:1?channel=buy_button)
+
+[Buy me a craft beer](https://kyles-tip-jar.myshopify.com/cart/31356317859862:1?channel=buy_button)
+
 ## Acknowledgments
 
-- <https://home-assistant.io>
-- <https://mosquitto.org/>
-- <https://github.com/CausticLab/hass-configurator-docker>
+- <https://hub.docker.com/r/homeassistant/raspberrypi4-homeassistant>
+- <https://hub.docker.com/r/arm64v8/eclipse-mosquitto>
+- <https://hub.docker.com/r/linuxserver/duplicati>
 
 ## License
 
