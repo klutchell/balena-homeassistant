@@ -1,4 +1,4 @@
-version: "2"
+version: "2.1"
 
 volumes:
   config:
@@ -6,12 +6,11 @@ volumes:
   duplicati:
 
 services:
-
   # https://hub.docker.com/r/homeassistant/home-assistant
   homeassistant:
     image: homeassistant/home-assistant:0.112.1
-    network_mode: host
-    privileged: true
+    ports:
+      - 80:8123
     volumes:
       - config:/config
 
@@ -32,6 +31,8 @@ services:
       - config:/config
     environment:
       HC_BASEPATH: /config
+      HC_ENFORCE_BASEPATH: true
+      HC_HASS_API: http://homeassistant:8123/api/
 
   # https://hub.docker.com/r/codercom/code-server
   vscode:
@@ -47,6 +48,7 @@ services:
       - 8080:8080/tcp
     volumes:
       - config:/config
+    user: root
 
   # https://hub.docker.com/r/linuxserver/duplicati
   duplicati:
