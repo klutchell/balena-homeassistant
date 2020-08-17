@@ -26,6 +26,22 @@ Application envionment variables apply to all services within the application, a
 
 ## Usage
 
+### homeassistant
+
+Connect to `http://<device-ip>:8123` to begin using homeassistant.
+
+### configurator
+
+Connect to `http://<device-ip>:3218` to begin using configurator.
+
+### vscode
+
+Connect to `http://<device-ip>:8080` to begin using vscode.
+
+### duplicati
+
+Connect to `http://<device-ip>:8200` to begin using duplicati.
+
 ## Contributing
 
 Please open an issue or submit a pull request with any features, fixes, or changes.

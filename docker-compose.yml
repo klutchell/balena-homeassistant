@@ -1,25 +1,62 @@
 version: "2"
+
 volumes:
   config:
+  mosquitto:
+  duplicati:
+
 services:
+
+  # https://hub.docker.com/r/homeassistant/home-assistant
   homeassistant:
-    image: homeassistant/raspberrypi4-homeassistant:stable
+    image: homeassistant/home-assistant:0.112.1
     network_mode: host
     privileged: true
     volumes:
       - config:/config
-    devices:
-      - /dev:/dev
-      - /dev/serial/by-id/usb-0658_0200-if00:/dev/zwave
-  mqtt:
-    image: arm64v8/eclipse-mosquitto
+
+  # https://hub.docker.com/_/eclipse-mosquitto
+  mosquitto:
+    build: mosquitto
     ports:
       - 1883:1883
-  hass-configurator:
-    image: causticlab/hass-configurator-docker:arm
-    ports:
-      - 8080:3218
     volumes:
-      - config:/hass-config
+      - mosquitto:/mosquitto/data
+
+  # https://hub.docker.com/r/causticlab/hass-configurator-docker
+  configurator:
+    image: causticlab/hass-configurator-docker:0.4.0-arm
+    ports:
+      - 3218:3218/tcp
+    volumes:
+      - config:/config
     environment:
-      HC_BASEPATH: /hass-config
+      HC_BASEPATH: /config
+
+  # https://hub.docker.com/r/codercom/code-server
+  vscode:
+    image: codercom/code-server:3.4.1
+    command:
+      - --port=8080
+      - --auth=none
+      - --extensions-dir=/config/.vscode
+      - --user-data-dir=/config/.vscode
+      - /config
+    working_dir: /config
+    ports:
+      - 8080:8080/tcp
+    volumes:
+      - config:/config
+
+  # https://hub.docker.com/r/linuxserver/duplicati
+  duplicati:
+    image: linuxserver/duplicati
+    environment:
+      PUID: "0"
+      PGID: "0"
+      CLI_ARGS: --webservice-interface=any
+    ports:
+      - 8200:8200/tcp
+    volumes:
+      - duplicati:/config
+      - config:/source/config
