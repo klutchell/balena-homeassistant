@@ -1,16 +1,12 @@
 # balena-homeassistant
 
-[homeassistant](https://www.home-assistant.io/) stack for balenaCloud
-
-## Requirements
-
-- RaspberryPi3, RaspberryPi4, or a similar arm64 device supported by BalenaCloud
+[Home Assistant](https://www.home-assistant.io/) - Open source home automation that puts local control and privacy first.
 
 ## Getting Started
 
 You can one-click-deploy this project to balena using the button below:
 
-[![](https://balena.io/deploy.png)](https://dashboard.balena-cloud.com/deploy?repoUrl=https://github.com/klutchell/balena-homeassistant&defaultDeviceType=raspberrypi4-64)
+[![balena deploy button](https://balena.io/deploy.svg)](https://dashboard.balena-cloud.com/deploy?repoUrl=https://github.com/klutchell/balena-homeassistant)
 
 ## Manual Deployment
 
