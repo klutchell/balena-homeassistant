@@ -2,25 +2,25 @@ version: "2.1"
 
 volumes:
   config:
-  mosquitto:
+  mqtt:
   duplicati:
 
 services:
   # https://hub.docker.com/r/homeassistant/home-assistant
-  homeassistant:
-    image: homeassistant/home-assistant:2021.1.4
+  app:
+    image: homeassistant/home-assistant:2021.1.5
     ports:
       - 80:8123
     volumes:
       - config:/config
 
   # https://hub.docker.com/_/eclipse-mosquitto
-  mosquitto:
-    build: mosquitto
+  mqtt:
+    build: mqtt
     ports:
       - 1883:1883
     volumes:
-      - mosquitto:/mosquitto/data
+      - mqtt:/mosquitto/data
 
   # https://hub.docker.com/r/causticlab/hass-configurator-docker
   configurator:
