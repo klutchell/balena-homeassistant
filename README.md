@@ -43,14 +43,10 @@ Connect to `http://<device-ip>:8200` to begin using duplicati.
 
 Please open an issue or submit a pull request with any features, fixes, or changes.
 
-## Acknowledgments
+## References
 
 - <https://hub.docker.com/r/homeassistant/home-assistant>
 - <https://hub.docker.com/_/eclipse-mosquitto>
 - <https://hub.docker.com/r/causticlab/hass-configurator-docker>
 - <https://hub.docker.com/r/codercom/code-server>
 - <https://hub.docker.com/r/linuxserver/duplicati>
-
-## License
-
-[MIT License](./LICENSE)
