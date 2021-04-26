@@ -8,7 +8,7 @@ volumes:
 services:
   # https://hub.docker.com/r/homeassistant/home-assistant
   app:
-    image: homeassistant/home-assistant:2021.4.4
+    image: homeassistant/home-assistant:2021.4.6
     ports:
       - 80:8123
     volumes:
