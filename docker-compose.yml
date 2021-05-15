@@ -8,11 +8,13 @@ volumes:
 services:
   # https://hub.docker.com/r/homeassistant/home-assistant
   app:
-    image: homeassistant/home-assistant:2021.5.1
+    build: app
     ports:
       - 80:8123
     volumes:
       - config:/config
+    labels:
+      io.balena.features.supervisor-api: 1
 
   # https://hub.docker.com/_/eclipse-mosquitto
   mqtt:

@@ -16,28 +16,33 @@ Alternatively, deployment can be carried out by manually creating a [balenaCloud
 
 Application envionment variables apply to all services within the application, and can be applied fleet-wide to apply to multiple devices.
 
-|Name|Example|Purpose|
-|---|---|---|
-|`TZ`|`America/Toronto`|(optional) inform services of the [timezone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) in your location|
-|`HC_HASS_API_PASSWORD`||(optional) in order for configurator to use API functions you must provide a [long-lived access token](https://developers.home-assistant.io/docs/auth_api/#long-lived-access-token)|
+| Name                   | Example           | Purpose                                                                                                                                                                             |
+| ---------------------- | ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `TZ`                   | `America/Toronto` | (optional) inform services of the [timezone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) in your location                                                         |
+| `HC_HASS_API_PASSWORD` |                   | (optional) in order for configurator to use API functions you must provide a [long-lived access token](https://developers.home-assistant.io/docs/auth_api/#long-lived-access-token) |
+| `BALENA_HOSTNAME`      | `homeassistant`   | Set a custom hostname on application start so it can be reached via MDNS like `pihole.local`.                                                                                       |
 
 ## Usage
 
 ### homeassistant
 
-Connect to `http://<device-ip>:8123` to begin using homeassistant.
+Once your device joins the fleet you'll need to allow some time for it to download the application.
+
+When it's done you should be able to access the access the app at http://homeassistant.local.
+
+Documentation for Homeassistant can be found at https://home-assistant.io/docs/
 
 ### configurator
 
-Connect to `http://<device-ip>:3218` to begin using configurator.
+Connect to `http://homeassistant.local:3218` to begin using configurator.
 
 ### vscode
 
-Connect to `http://<device-ip>:8080` to begin using vscode.
+Connect to `http://homeassistant.local:8080` to begin using vscode.
 
 ### duplicati
 
-Connect to `http://<device-ip>:8200` to begin using duplicati.
+Connect to `http://homeassistant.local:8200` to begin using duplicati.
 
 ## Contributing
 
