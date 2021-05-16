@@ -20,7 +20,7 @@ Application envionment variables apply to all services within the application, a
 | ---------------------- | ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `TZ`                   | `America/Toronto` | (optional) inform services of the [timezone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) in your location                                                         |
 | `HC_HASS_API_PASSWORD` |                   | (optional) in order for configurator to use API functions you must provide a [long-lived access token](https://developers.home-assistant.io/docs/auth_api/#long-lived-access-token) |
-| `BALENA_HOSTNAME`      | `homeassistant`   | Set a custom hostname on application start so it can be reached via MDNS like `pihole.local`.                                                                                       |
+| `BALENA_HOSTNAME`      | `homeassistant`   | Set a custom hostname on application start so it can be reached via MDNS like `homeassistant.local`.                                                                                       |
 
 ## Usage
 
