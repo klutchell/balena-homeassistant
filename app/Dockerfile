@@ -1,4 +1,4 @@
-FROM homeassistant/home-assistant:2021.5.4
+FROM homeassistant/home-assistant:2021.6.6
 
 COPY hostname.sh /etc/cont-init.d/10-hostname.sh
 
