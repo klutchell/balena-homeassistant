@@ -26,7 +26,7 @@ services:
 
   # https://hub.docker.com/r/causticlab/hass-configurator-docker
   configurator:
-    image: causticlab/hass-configurator-docker:0.4.0-arm
+    image: causticlab/hass-configurator-docker:0.4.1
     ports:
       - 3218:3218/tcp
     volumes:
@@ -34,11 +34,11 @@ services:
     environment:
       HC_BASEPATH: /config
       HC_ENFORCE_BASEPATH: true
-      HC_HASS_API: http://homeassistant:8123/api/
+      HC_HASS_API: http://app:8123/api/
 
   # https://hub.docker.com/r/codercom/code-server
-  vscode:
-    image: codercom/code-server:3.9.0
+  code-server:
+    image: codercom/code-server:3.10.2
     command:
       - --port=8080
       - --auth=none
@@ -54,7 +54,7 @@ services:
 
   # https://hub.docker.com/r/linuxserver/duplicati
   duplicati:
-    image: linuxserver/duplicati
+    image: linuxserver/duplicati:version-v2.0.6.3-2.0.6.3_beta_2021-06-17
     environment:
       PUID: "0"
       PGID: "0"
