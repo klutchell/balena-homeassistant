@@ -2,15 +2,20 @@
 
 [Home Assistant](https://www.home-assistant.io/) - Open source home automation that puts local control and privacy first.
 
+## Hardware Required
+
+- Raspberry Pi 3/4 (64-bit)
+- 32GB MicroSD card or larger
+
 ## Getting Started
 
 You can one-click-deploy this project to balena using the button below:
 
-[![balena deploy button](https://balena.io/deploy.svg)](https://dashboard.balena-cloud.com/deploy?repoUrl=https://github.com/klutchell/balena-homeassistant)
+[![deploy with balena](https://balena.io/deploy.svg)](https://dashboard.balena-cloud.com/deploy?repoUrl=https://github.com/klutchell/balena-homeassistant)
 
 ## Manual Deployment
 
-Alternatively, deployment can be carried out by manually creating a [balenaCloud account](https://dashboard.balena-cloud.com) and application, flashing a device, downloading the project and pushing it via either Git or the [balena CLI](https://github.com/balena-io/balena-cli).
+Alternatively, deployment can be carried out by manually creating a [balenaCloud account](https://dashboard.balena-cloud.com) and application, flashing a device, downloading the project and pushing it via the [balena CLI](https://github.com/balena-io/balena-cli).
 
 ### Application Environment Variables
 
@@ -20,7 +25,7 @@ Application envionment variables apply to all services within the application, a
 | ---------------------- | ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `TZ`                   | `America/Toronto` | (optional) inform services of the [timezone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) in your location                                                         |
 | `HC_HASS_API_PASSWORD` |                   | (optional) in order for configurator to use API functions you must provide a [long-lived access token](https://developers.home-assistant.io/docs/auth_api/#long-lived-access-token) |
-| `DEVICE_HOSTNAME`      | `homeassistant`   | Set a custom hostname on application start so it can be reached via MDNS like `homeassistant.local`.                                                                                       |
+| `DEVICE_HOSTNAME`      | `homeassistant`   | Set a custom hostname on application start so it can be reached via MDNS like `homeassistant.local`.                                                                                |
 
 ## Usage
 
@@ -36,9 +41,9 @@ Documentation for Homeassistant can be found at https://home-assistant.io/docs/
 
 Connect to `http://homeassistant.local:3218` to begin using configurator.
 
-### vscode
+### code-server
 
-Connect to `http://homeassistant.local:8080` to begin using vscode.
+Connect to `http://homeassistant.local:8080` to begin using code-server.
 
 ### duplicati
 
