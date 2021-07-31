@@ -33,21 +33,33 @@ Application envionment variables apply to all services within the application, a
 
 Once your device joins the fleet you'll need to allow some time for it to download the application.
 
-When it's done you should be able to access the access the app at http://homeassistant.local.
+When it's done you should be able to access the access the app at <http://homeassistant.local>.
 
-Documentation for Homeassistant can be found at https://home-assistant.io/docs/
+Documentation for Homeassistant can be found at <https://home-assistant.io/docs/>
 
-### configurator
+### Extras
 
-Connect to `http://homeassistant.local:3218` to begin using configurator.
+Works well with the [duplicati block](https://github.com/klutchell/balenablocks-duplicati) to make encrypted snapshots offsite!
 
-### code-server
+Add the following services and volumes to the existing docker-compose file in this project.
 
-Connect to `http://homeassistant.local:8080` to begin using code-server.
+```yaml
+services:
+  duplicati:
+    image: linuxserver/duplicati:latest
+    environment:
+      PUID: "0"
+      PGID: "0"
+      CLI_ARGS: --webservice-interface=any
+    ports:
+      - 8200:8200/tcp
+    volumes:
+      - duplicati:/config
+      - config:/source
 
-### duplicati
-
-Connect to `http://homeassistant.local:8200` to begin using duplicati.
+volumes:
+  duplicati:
+```
 
 ## Contributing
 
