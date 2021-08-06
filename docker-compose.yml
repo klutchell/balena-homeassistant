@@ -1,31 +1,29 @@
 version: "2.1"
 
-volumes:
-  config:
-  mqtt:
-
 services:
   # https://hub.docker.com/r/homeassistant/home-assistant
-  app:
-    build: app
+  homeassistant:
+    image: homeassistant/home-assistant:2021.8.8
     ports:
       - 80:8123
     volumes:
       - config:/config
-    labels:
-      io.balena.features.supervisor-api: 1
 
   # https://hub.docker.com/_/eclipse-mosquitto
   mqtt:
-    build: mqtt
+    image: eclipse-mosquitto:1.6.15
     ports:
       - 1883:1883
+    command:
+      - /bin/sh
+      - -c
+      - "printf 'persistence true\npersistence_location /mosquitto/data/\n' >> /mosquitto/config/mosquitto.conf && /usr/sbin/mosquitto -c /mosquitto/config/mosquitto.conf"
     volumes:
-      - mqtt:/mosquitto/data
+      - mqtt:/mosquitto/data/
 
   # https://hub.docker.com/r/codercom/code-server
   code-server:
-    image: codercom/code-server:3.10.2
+    image: codercom/code-server:3.11.0
     command:
       - --port=8080
       - --auth=none
@@ -38,3 +36,39 @@ services:
     volumes:
       - config:/config
     user: root
+
+  # https://github.com/balenablocks/hostname
+  hostname:
+    image: balenablocks/hostname
+    restart: no
+    labels:
+      io.balena.features.supervisor-api: 1
+    environment:
+      SET_HOSTNAME: homeassistant
+
+  # https://hub.docker.com/_/influxdb
+  influxdb:
+    image: influxdb:1.8.6
+    volumes:
+      - influxdb:/var/lib/influxdb
+
+  # https://github.com/balenablocks/dashboard
+  dashboard:
+    image: balenablocks/dashboard
+    volumes:
+        - dashboard:/data
+    ports:
+        - 3000:80/tcp
+
+  # https://github.com/balenablocks/connector
+  connector:
+    image: balenablocks/connector
+    labels:
+      io.balena.features.balena-api: '1'
+    privileged: true
+
+volumes:
+  config:
+  dashboard:
+  influxdb:
+  mqtt:
