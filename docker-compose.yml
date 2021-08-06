@@ -23,18 +23,6 @@ services:
     volumes:
       - mqtt:/mosquitto/data
 
-  # https://hub.docker.com/r/causticlab/hass-configurator-docker
-  configurator:
-    image: causticlab/hass-configurator-docker:0.4.1
-    ports:
-      - 3218:3218/tcp
-    volumes:
-      - config:/config
-    environment:
-      HC_BASEPATH: /config
-      HC_ENFORCE_BASEPATH: true
-      HC_HASS_API: http://app:8123/api/
-
   # https://hub.docker.com/r/codercom/code-server
   code-server:
     image: codercom/code-server:3.10.2
