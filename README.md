@@ -21,15 +21,12 @@ Alternatively, deployment can be carried out by manually creating a [balenaCloud
 
 Application envionment variables apply to all services within the application, and can be applied fleet-wide to apply to multiple devices.
 
-| Name                   | Example           | Purpose                                                                                                                                                                             |
-| ---------------------- | ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `TZ`                   | `America/Toronto` | (optional) inform services of the [timezone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) in your location                                                         |
-| `HC_HASS_API_PASSWORD` |                   | (optional) in order for configurator to use API functions you must provide a [long-lived access token](https://developers.home-assistant.io/docs/auth_api/#long-lived-access-token) |
-| `DEVICE_HOSTNAME`      | `homeassistant`   | Set a custom hostname on application start so it can be reached via MDNS like `homeassistant.local`.                                                                                |
+| Name           | Example           | Purpose                                                                                                                     |
+| -------------- | ----------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| `TZ`           | `America/Toronto` | (optional) inform services of the [timezone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) in your location |
+| `SET_HOSTNAME` | `homeassistant`   | Set a custom hostname on application start so it can be reached via MDNS like `homeassistant.local`.                        |
 
 ## Usage
-
-### homeassistant
 
 Once your device joins the fleet you'll need to allow some time for it to download the application.
 
@@ -37,7 +34,45 @@ When it's done you should be able to access the access the app at <http://homeas
 
 Documentation for Homeassistant can be found at <https://home-assistant.io/docs/>
 
-### Extras
+### Dashboard
+
+You may optionally duplicate the Home Assistant sensor data to an
+influx database to generate graphs in the Grafana dashboard.
+
+Start by opening a terminal to the `influxdb` service and creating
+a database and user credentials.
+
+```bash
+influx
+
+create database homeassistant
+show databases
+
+create user homeassistant with password 'homeassistant'
+show users
+
+grant all on homeassistant to homeassistant
+exit
+```
+
+Then the following block to your Home Assistant configuration.yml to
+transfer all state changes to an external InfluxDB database
+
+```yaml
+# https://www.home-assistant.io/integrations/influxdb/
+influxdb:
+  host: influxdb
+  port: 8086
+  database: homeassistant
+  username: !secret influxdb_user
+  password: !secret influxdb_password
+  max_retries: 3
+  include:
+    domains:
+      - sensor
+```
+
+## Extras
 
 Works well with the [duplicati block](https://github.com/klutchell/balenablocks-duplicati) to make encrypted snapshots offsite!
 
@@ -64,11 +99,3 @@ volumes:
 ## Contributing
 
 Please open an issue or submit a pull request with any features, fixes, or changes.
-
-## References
-
-- <https://hub.docker.com/r/homeassistant/home-assistant>
-- <https://hub.docker.com/_/eclipse-mosquitto>
-- <https://hub.docker.com/r/causticlab/hass-configurator-docker>
-- <https://hub.docker.com/r/codercom/code-server>
-- <https://hub.docker.com/r/linuxserver/duplicati>
