@@ -17,7 +17,7 @@ services:
     command:
       - /bin/sh
       - -c
-      - "printf 'persistence true\npersistence_location /mosquitto/data/\n' >> /mosquitto/config/mosquitto.conf && /usr/sbin/mosquitto -c /mosquitto/config/mosquitto.conf"
+      - "printf 'persistence true\npersistence_location /mosquitto/data/\n' > /mosquitto/config/mosquitto.conf && /usr/sbin/mosquitto -c /mosquitto/config/mosquitto.conf"
     volumes:
       - mqtt:/mosquitto/data/
 
