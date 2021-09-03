@@ -15,7 +15,8 @@ You can one-click-deploy this project to balena using the button below:
 
 ## Manual Deployment
 
-Alternatively, deployment can be carried out by manually creating a [balenaCloud account](https://dashboard.balena-cloud.com) and application, flashing a device, downloading the project and pushing it via the [balena CLI](https://github.com/balena-io/balena-cli).
+Alternatively, deployment can be carried out by manually creating a [balenaCloud account](https://dashboard.balena-cloud.com) and application,
+flashing a device, downloading the project and pushing it via the [balena CLI](https://github.com/balena-io/balena-cli).
 
 ### Application Environment Variables
 
@@ -24,20 +25,20 @@ Application envionment variables apply to all services within the application, a
 | Name           | Example           | Purpose                                                                                                                     |
 | -------------- | ----------------- | --------------------------------------------------------------------------------------------------------------------------- |
 | `TZ`           | `America/Toronto` | (optional) inform services of the [timezone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) in your location |
-| `SET_HOSTNAME` | `homeassistant`   | Set a custom hostname on application start so it can be reached via MDNS like `homeassistant.local`.                        |
+| `SET_HOSTNAME` | `homeassistant`   | Set a custom hostname on application start.                                                                                 |
 
 ## Usage
 
-Once your device joins the fleet you'll need to allow some time for it to download the application.
+Once your device joins the fleet you'll need to allow some time for it to download the various services.
 
 When it's done you should be able to access the access the app at <http://homeassistant.local>.
 
-Documentation for Homeassistant can be found at <https://home-assistant.io/docs/>
+Documentation for Home Assistant can be found at <https://www.home-assistant.io/docs/>.
 
-### Dashboard
+### InfluxDB & Grafana
 
 You may optionally duplicate the Home Assistant sensor data to an
-influx database to generate graphs in the Grafana dashboard.
+influx database and generate graphs in the Grafana dashboard.
 
 Start by opening a terminal to the `influxdb` service and creating
 a database and user credentials.
@@ -71,6 +72,8 @@ influxdb:
     domains:
       - sensor
 ```
+
+The Grafana dashboard should be available at <http://homeassistant.local:3000> and the default credentials are `admin/admin`.
 
 ## Extras
 
