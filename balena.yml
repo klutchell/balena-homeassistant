@@ -1,0 +1,26 @@
+name: "Home Assistant"
+type: "sw.application"
+version: 2021.9.1
+description: "Open source home automation that puts local control and privacy first."
+post-provisioning: >-
+  ## Usage instructions
+  
+  Once your device joins the fleet you'll need to allow some time for it to download the various services.
+  
+  When it's done you should be able to access the access the app at http://homeassistant.local.
+
+  Documentation for Home Assistant can be found at https://www.home-assistant.io/docs/.
+assets:
+  repository:
+    type: "blob.asset"
+    data:
+      url: "https://github.com/klutchell/balena-homeassistant"
+  logo:
+    type: "blob.asset"
+    data:
+      url: "https://raw.githubusercontent.com/klutchell/balena-homeassistant/main/logo.png"
+data:
+  defaultDeviceType: "raspberrypi4-64"
+  supportedDeviceTypes:
+    - "raspberrypi3-64"
+    - "raspberrypi4-64"
