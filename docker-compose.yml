@@ -11,9 +11,11 @@ services:
 
   # https://hub.docker.com/_/eclipse-mosquitto
   mqtt:
-    image: eclipse-mosquitto:1.6.15
+    build: mqtt
     ports:
       - 1883:1883
+    volumes:
+      - mqtt:/mosquitto/data
 
   # https://hub.docker.com/r/codercom/code-server
   code-server:
@@ -56,6 +58,7 @@ services:
 
 volumes:
   config:
+  mqtt:
   dashboard:
   influxdb:
   grafana:
