@@ -18,7 +18,7 @@ jobs:
           fetch-depth: 0
           persist-credentials: false
 
-      - uses: tmigone/versionist@v0.4.2
+      - uses: tmigone/versionist@v0.4.6
         with:
           github_email: 'versionist@users.noreply.github.com'
           github_username: 'versionist'
