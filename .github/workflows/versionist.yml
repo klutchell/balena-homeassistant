@@ -20,7 +20,7 @@ jobs:
 
       - uses: tmigone/versionist@v0.4.2
         with:
-          github_email: 'versionist@github.com'
+          github_email: 'versionist@users.noreply.github.com'
           github_username: 'versionist'
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: main
