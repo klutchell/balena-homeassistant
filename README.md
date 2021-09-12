@@ -22,10 +22,10 @@ flashing a device, downloading the project and pushing it via the [balena CLI](h
 
 Application envionment variables apply to all services within the application, and can be applied fleet-wide to apply to multiple devices.
 
-| Name           | Example           | Purpose                                                                                                                     |
-| -------------- | ----------------- | --------------------------------------------------------------------------------------------------------------------------- |
-| `TZ`           | `America/Toronto` | (optional) inform services of the [timezone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) in your location |
-| `SET_HOSTNAME` | `homeassistant`   | Set a custom hostname on application start.                                                                                 |
+| Name           | Description                                                                                                       |
+| -------------- | ----------------------------------------------------------------------------------------------------------------- |
+| `TZ`           | Inform services of the [timezone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) in your location. |
+| `SET_HOSTNAME` | Set a custom hostname on application start. Default is `homeassistant`.                                           |
 
 ## Usage
 

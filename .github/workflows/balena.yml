@@ -26,10 +26,10 @@ jobs:
       with:
         node-version: 12
 
-    - name: Install balena CLI
+    - id: npm_install
       run: npm install balena-cli@${{ env.BALENA_CLI_VERSION }} --production --global
 
-    - name: Login to balenaCloud
+    - id: balena_login
       run: balena login --token "${{ secrets.BALENA_API_KEY }}"
 
     - id: is_pr
