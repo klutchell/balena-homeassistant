@@ -4,9 +4,9 @@ version: 2021.11.1
 description: "Open source home automation that puts local control and privacy first."
 post-provisioning: >-
   ## Usage instructions
-  
+
   Once your device joins the fleet you'll need to allow some time for it to download the various services.
-  
+
   When it's done you should be able to access the access the app at http://homeassistant.local.
 
   Documentation for Home Assistant can be found at https://www.home-assistant.io/docs/.
