@@ -3,7 +3,7 @@ version: "2.1"
 services:
   # https://hub.docker.com/r/homeassistant/home-assistant
   homeassistant:
-    image: homeassistant/home-assistant:2021.12.7
+    image: homeassistant/home-assistant:2022.2.6
     ports:
       - 80:8123
     volumes:
@@ -17,18 +17,28 @@ services:
     volumes:
       - mqtt:/mosquitto/data
 
+  # https://www.zigbee2mqtt.io/guide/getting-started/#installation
+  zigbee2mqtt:
+    build: zigbee2mqtt
+    volumes:
+      - zigbee2mqtt:/app/data
+    ports:
+      - 8080:8080
+    devices:
+      - /dev/ttyUSB0:/dev/ttyUSB0
+
   # https://hub.docker.com/r/codercom/code-server
   code-server:
     image: codercom/code-server:3.12.0
     command:
-      - --port=8080
+      - --port=8888
       - --auth=none
       - --extensions-dir=/config/.vscode
       - --user-data-dir=/config/.vscode
       - /config
     working_dir: /config
     ports:
-      - 8080:8080/tcp
+      - 8888:8888/tcp
     volumes:
       - config:/config
     user: root
@@ -59,6 +69,7 @@ services:
 volumes:
   config:
   mqtt:
+  zigbee2mqtt:
   dashboard:
   influxdb:
   grafana:

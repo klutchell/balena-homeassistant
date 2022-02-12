@@ -1,3 +1,3 @@
-FROM eclipse-mosquitto:1.6.12
+FROM eclipse-mosquitto:2.0
 
 COPY mosquitto.conf /mosquitto/config/mosquitto.conf
