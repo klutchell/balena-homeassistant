@@ -45,7 +45,7 @@ services:
 
   # https://hub.docker.com/_/influxdb
   influxdb:
-    image: influxdb:1.8.6
+    image: influxdb:1.8.10
     volumes:
       - influxdb:/var/lib/influxdb
 
