@@ -1,0 +1,3 @@
+# https://hub.docker.com/r/blakeblackshear/frigate/tags
+ARG BALENA_ARCH=%%BALENA_ARCH%%
+FROM blakeblackshear/frigate:0.10.1-${BALENA_ARCH}

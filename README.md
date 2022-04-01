@@ -35,7 +35,31 @@ When it's done you should be able to access the access the app at <http://homeas
 
 Documentation for Home Assistant can be found at <https://www.home-assistant.io/docs/>.
 
-### InfluxDB & Grafana
+### Services
+
+#### code-server
+
+[Code server](https://hub.docker.com/r/codercom/code-server) is running on port 9000 for editing YAML files directly.
+
+#### mqtt
+
+[Mosquitto](https://mosquitto.org/) is an MQTT broker for Home Assistant listening on port 1883.
+
+#### zigbee2mqtt
+
+[Zigbee2MQTT](https://www.zigbee2mqtt.io/) supports various Zigbee adapters and the Web UI is on port 7000.
+
+#### frigate
+
+[Frigate](https://docs.frigate.video/) is a complete and local NVR designed for Home Assistant with AI object detection. The Web UI is on port 5000.
+
+#### wyze-bridge
+
+Docker container to expose a local RTMP, RTSP, and HLS or Low-Latency HLS stream for ALL your Wyze cameras including the outdoor and doorbell cams. No third-party or special firmware required.
+
+<https://github.com/mrlt8/docker-wyze-bridge>
+
+#### influxdb & grafana
 
 You may optionally duplicate the Home Assistant sensor data to an
 influx database and generate graphs in the Grafana dashboard.
@@ -75,29 +99,17 @@ influxdb:
 
 The Grafana dashboard should be available at <http://homeassistant.local:3000> and the default credentials are `admin/admin`.
 
-## Extras
+#### restic
 
-Works well with the [duplicati block](https://github.com/klutchell/balenablocks-duplicati) to make encrypted snapshots offsite!
+Rest easy knowing that your application data volumes are automatically and securely backed up to local or cloud storage!
 
-Add the following services and volumes to the existing docker-compose file in this project.
+<https://github.com/klutchell/balena-restic>
 
-```yaml
-services:
-  duplicati:
-    image: linuxserver/duplicati:latest
-    environment:
-      PUID: "0"
-      PGID: "0"
-      CLI_ARGS: --webservice-interface=any
-    ports:
-      - 8200:8200/tcp
-    volumes:
-      - duplicati:/config
-      - config:/source
+#### hostname
 
-volumes:
-  duplicati:
-```
+An utility block to set the hostname of devices running balenaOS.
+
+<https://github.com/balenablocks/hostname>
 
 ## Contributing
 
