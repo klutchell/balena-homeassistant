@@ -1,0 +1,13 @@
+# https://hub.docker.com/r/blakeblackshear/frigate/tags
+ARG BALENA_ARCH=%%BALENA_ARCH%%
+FROM blakeblackshear/frigate:0.10.1-${BALENA_ARCH}
+
+# hadolint ignore=DL3008
+RUN apt-get update && apt-get install --no-install-recommends -y util-linux jq kmod \
+    && apt-get clean && rm -rf /var/lib/apt/lists/*
+
+COPY mount.sh /
+
+RUN chmod +x /mount.sh
+
+ENTRYPOINT [ "/mount.sh" ]

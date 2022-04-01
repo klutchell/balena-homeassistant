@@ -31,14 +31,14 @@ services:
   code-server:
     image: codercom/code-server:4.2.0
     command:
-      - --port=8888
+      - --port=8181
       - --auth=none
       - --extensions-dir=/config/.vscode
       - --user-data-dir=/config/.vscode
       - /config
     working_dir: /config
     ports:
-      - 8888:8888/tcp
+      - 8181:8181/tcp
     volumes:
       - config:/config
     user: root
@@ -66,6 +66,25 @@ services:
     environment:
       SET_HOSTNAME: homeassistant
 
+  # https://blakeblackshear.github.io/frigate/installation
+  frigate:
+    build: frigate
+    privileged: true
+    ports:
+      - "8282:5000"
+      - "1935:1935" # RTMP feeds
+    volumes:
+      - config:/config:ro
+      - media:/media/frigate
+    tmpfs:
+      - /tmp/cache
+    shm_size: 2048M
+    environment:
+      FRIGATE_RTSP_PASSWORD: "balena"
+      CONFIG_FILE: "/config/frigate.yml"
+    labels:
+      io.balena.features.kernel-modules: 1
+
 volumes:
   config:
   mqtt:
@@ -73,3 +92,4 @@ volumes:
   dashboard:
   influxdb:
   grafana:
+  media:
