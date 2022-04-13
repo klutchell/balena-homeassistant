@@ -12,7 +12,7 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        fleet: [gh_klutchell/homeassistant]
+        fleet: [gh_klutchell/homeassistant-aarch64, gh_klutchell/homeassistant-amd64]
 
     steps:
       - uses: actions/checkout@v3
