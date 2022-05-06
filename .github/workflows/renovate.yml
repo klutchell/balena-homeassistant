@@ -3,6 +3,10 @@ on:
   schedule:
     # * is a special character in YAML so you have to quote this string
     - cron: '0 */2 * * *'
+  pull_request:
+    types: [opened, synchronize, closed]
+    branches:
+      - main
 jobs:
   renovate:
     runs-on: ubuntu-20.04
