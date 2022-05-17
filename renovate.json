@@ -1,9 +1,5 @@
 {
   "extends": ["config:base"],
-  "allowPostUpgradeCommandTemplating": true,
-  "allowedPostUpgradeCommands": ["^sed"],
-  "platform": "github",
-  "onboarding": false,
   "packageRules": [
     {
       "matchPackageNames": ["homeassistant/home-assistant"],
@@ -16,9 +12,5 @@
         "executionMode": "update"
       }
     }
-  ],
-  "repositories": ["klutchell/balena-homeassistant"],
-  "rebaseWhen": "auto",
-  "automerge": false,
-  "labels": ["renovate"]
+  ]
 }
