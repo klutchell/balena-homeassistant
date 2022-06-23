@@ -1,6 +1,6 @@
 name: "Home Assistant"
 type: "sw.application"
-version: 2022.6.6
+version: 2022.6.7
 description: "Open source home automation that puts local control and privacy first."
 post-provisioning: >-
   ## Usage instructions
