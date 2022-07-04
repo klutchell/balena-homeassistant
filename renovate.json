@@ -4,6 +4,7 @@
     {
       "matchPackageNames": ["homeassistant/home-assistant"],
       "matchBaseBranches": ["main"],
+      "versioning": "loose",
       "postUpgradeTasks": {
         "commands": [
           "sed \"s|^version: .*$|version: $(npx -q -y -- semver -c -l {{{newVersion}}})|\" -i balena.yml"
