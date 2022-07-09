@@ -66,14 +66,13 @@ services:
     environment:
       SET_HOSTNAME: homeassistant
 
-  # https://github.com/klutchell/volume-keeper
-  volume-keeper:
-    build: volume-keeper
+  restic:
+    build: restic
     labels:
       io.balena.features.supervisor-api: 1
       io.balena.features.balena-socket: 1
     volumes:
-      - vk-cache:/cache
+      - restic:/cache
 
 volumes:
   config:
@@ -82,4 +81,4 @@ volumes:
   dashboard:
   influxdb:
   grafana:
-  vk-cache:
+  restic:
