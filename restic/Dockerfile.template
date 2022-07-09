@@ -1,0 +1,3 @@
+# https://github.com/klutchell/balena-restic
+# hadolint ignore=DL3006
+FROM bh.cr/gh_klutchell/balena-restic-%%BALENA_ARCH%%

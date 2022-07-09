@@ -1,2 +1,0 @@
-# hadolint ignore=DL3006
-FROM bh.cr/gh_klutchell/volume-keeper-%%BALENA_ARCH%%
