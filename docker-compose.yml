@@ -68,9 +68,9 @@ services:
 
   restic:
     build: restic
+    privileged: true
     labels:
       io.balena.features.supervisor-api: 1
-      io.balena.features.balena-socket: 1
     volumes:
       - restic:/cache
 
