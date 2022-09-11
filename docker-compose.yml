@@ -16,6 +16,8 @@ services:
       - 1883:1883
     volumes:
       - mqtt:/mosquitto/data
+    tmpfs:
+      - /mosquitto/log
 
   # https://www.zigbee2mqtt.io/guide/getting-started/#installation
   zigbee2mqtt:
@@ -73,6 +75,7 @@ services:
       io.balena.features.supervisor-api: 1
     volumes:
       - restic-cache:/cache
+      - restic-snapshots:/snapshots
 
   # https://blakeblackshear.github.io/frigate/installation
   frigate:
@@ -106,5 +109,6 @@ volumes:
   mqtt:
   zigbee2mqtt:
   restic-cache:
+  restic-snapshots:
   frigate-media:
   wyze-tokens:
