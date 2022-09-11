@@ -23,7 +23,7 @@ services:
     volumes:
       - zigbee2mqtt:/app/data
     ports:
-      - 8080:8080
+      - 7000:7000
     devices:
       - /dev/ttyUSB0:/dev/ttyUSB0
 
@@ -31,14 +31,14 @@ services:
   code-server:
     image: codercom/code-server:4.6.1
     command:
-      - --port=8888
+      - --port=9000
       - --auth=none
       - --extensions-dir=/config/.vscode
       - --user-data-dir=/config/.vscode
       - /config
     working_dir: /config
     ports:
-      - 8888:8888/tcp
+      - 9000:9000/tcp
     volumes:
       - config:/config
     user: root
@@ -72,13 +72,39 @@ services:
     labels:
       io.balena.features.supervisor-api: 1
     volumes:
-      - restic:/cache
+      - restic-cache:/cache
+
+  # https://blakeblackshear.github.io/frigate/installation
+  frigate:
+    build: frigate
+    privileged: true
+    ports:
+      - "5000:5000"
+      - "1935:1935" # RTMP feeds
+    volumes:
+      - config:/config
+      - frigate-media:/media/frigate
+    tmpfs:
+      - /tmp/cache
+    shm_size: 2048M
+    environment:
+      FRIGATE_RTSP_PASSWORD: "balena"
+      CONFIG_FILE: "/config/frigate.yml"
+    labels:
+      io.balena.features.kernel-modules: 1
+
+  # https://hub.docker.com/r/mrlt8/wyze-bridge/tags
+  wyze-bridge:
+    image: mrlt8/wyze-bridge:1.8.7
+    volumes:
+      - wyze-tokens:/tokens
 
 volumes:
   config:
-  mqtt:
-  zigbee2mqtt:
-  dashboard:
   influxdb:
   grafana:
-  restic:
+  mqtt:
+  zigbee2mqtt:
+  restic-cache:
+  frigate-media:
+  wyze-tokens:

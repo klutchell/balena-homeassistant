@@ -5,9 +5,9 @@ mqtt:
 serial:
   port: /dev/ttyUSB0
 frontend:
-  port: 8080
+  port: 7000
 advanced:
   network_key: GENERATE
 homeassistant:
-  discovery_topic: 'homeassistant'
-  status_topic: 'homeassistant/status'
+  discovery_topic: "homeassistant"
+  status_topic: "homeassistant/status"
