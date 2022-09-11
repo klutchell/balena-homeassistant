@@ -31,7 +31,7 @@ Application envionment variables apply to all services within the application, a
 
 Once your device joins the fleet you'll need to allow some time for it to download the various services.
 
-When it's done you should be able to access the access the app at <http://homeassistant.local>.
+When it's done you should be able to access the access the app at <http://homeassistant.local:8123>.
 
 Documentation for Home Assistant can be found at <https://www.home-assistant.io/docs/>.
 
