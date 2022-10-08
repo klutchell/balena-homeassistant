@@ -1,2 +1,2 @@
 # https://hub.docker.com/r/blakeblackshear/frigate/tags
-FROM blakeblackshear/frigate:0.11.0
+FROM blakeblackshear/frigate:0.11.1
