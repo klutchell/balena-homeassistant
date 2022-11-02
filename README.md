@@ -2,11 +2,6 @@
 
 [Home Assistant](https://www.home-assistant.io/) - Open source home automation that puts local control and privacy first.
 
-## Hardware Required
-
-- Raspberry Pi 3/4 (64-bit)
-- 32GB MicroSD card or larger
-
 ## Getting Started
 
 You can one-click-deploy this project to balena using the button below:
