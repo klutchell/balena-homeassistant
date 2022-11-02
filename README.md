@@ -2,11 +2,6 @@
 
 [Home Assistant](https://www.home-assistant.io/) - Open source home automation that puts local control and privacy first.
 
-## Hardware Required
-
-- Raspberry Pi 3/4 (64-bit)
-- 32GB MicroSD card or larger
-
 ## Getting Started
 
 You can one-click-deploy this project to balena using the button below:
@@ -110,6 +105,12 @@ Rest easy knowing that your application data volumes are automatically and secur
 An utility block to set the hostname of devices running balenaOS.
 
 <https://github.com/balenablocks/hostname>
+
+#### tailscale
+
+Add your device to your [Tailscale](https://tailscale.com/) network with this block!
+
+<https://github.com/klutchell/balena-tailscale>
 
 ## Contributing
 
