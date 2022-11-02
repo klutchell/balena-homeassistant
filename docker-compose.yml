@@ -61,7 +61,7 @@ services:
 
   # https://github.com/balenablocks/hostname
   hostname:
-    image: balenablocks/hostname
+    build: hostname
     restart: no
     labels:
       io.balena.features.supervisor-api: 1
