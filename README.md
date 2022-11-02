@@ -111,6 +111,12 @@ An utility block to set the hostname of devices running balenaOS.
 
 <https://github.com/balenablocks/hostname>
 
+#### tailscale
+
+Add your device to your [Tailscale](https://tailscale.com/) network with this block!
+
+<https://github.com/klutchell/balena-tailscale>
+
 ## Contributing
 
 Please open an issue or submit a pull request with any features, fixes, or changes.
