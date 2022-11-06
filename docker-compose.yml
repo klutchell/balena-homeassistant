@@ -98,7 +98,7 @@ services:
 
   # https://hub.docker.com/r/mrlt8/wyze-bridge/tags
   wyze-bridge:
-    image: mrlt8/wyze-bridge:1.8.13
+    image: mrlt8/wyze-bridge:1.9.0
     volumes:
       - wyze-tokens:/tokens
 
