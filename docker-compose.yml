@@ -53,7 +53,7 @@ services:
 
   # https://hub.docker.com/r/grafana/grafana
   grafana:
-    image: grafana/grafana:9.2.4
+    image: grafana/grafana:9.2.5
     volumes:
       - grafana:/var/lib/grafana
     ports:
