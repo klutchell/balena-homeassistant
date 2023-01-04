@@ -8,6 +8,10 @@ services:
       - 80:8123
     volumes:
       - config:/config
+    labels:
+      io.balena.features.dbus: "1"
+    environment:
+      DBUS_SYSTEM_BUS_ADDRESS: unix:path=/host/run/dbus/system_bus_socket
 
   # https://hub.docker.com/_/eclipse-mosquitto
   mqtt:
