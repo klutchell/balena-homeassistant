@@ -1,22 +1,40 @@
 {
-  "extends": [
-    "config:base"
+  "extends": ["config:base"],
+  "regexManagers": [
+    {
+      "fileMatch": [
+        "(^|\\/)(?:docker-)?compose[^/]*\\.ya?ml$",
+        "(^|\\/)Dockerfile(\\.[[:alnum:]]+)?$"
+      ],
+      "matchStrings": [
+        "bh\\.cr/gh_klutchell/tailscale-%%BALENA_ARCH%%/(?<currentValue>.*?)\\n"
+      ],
+      "depNameTemplate": "klutchell/balena-tailscale",
+      "datasourceTemplate": "github-tags",
+      "extractVersionTemplate": "^v?(?<version>.*)$"
+    },
+    {
+      "fileMatch": [
+        "(^|\\/)(?:docker-)?compose[^/]*\\.ya?ml$",
+        "(^|\\/)Dockerfile(\\.[[:alnum:]]+)?$"
+      ],
+      "matchStrings": [
+        "bh\\.cr/gh_klutchell/balena-restic-%%BALENA_ARCH%%/(?<currentValue>.*?)\\n"
+      ],
+      "depNameTemplate": "klutchell/balena-restic",
+      "datasourceTemplate": "github-tags",
+      "extractVersionTemplate": "^v?(?<version>.*)$"
+    }
   ],
   "packageRules": [
     {
-      "matchPackageNames": [
-        "homeassistant/home-assistant"
-      ],
-      "matchBaseBranches": [
-        "main"
-      ],
+      "matchPackageNames": ["homeassistant/home-assistant"],
+      "matchBaseBranches": ["main"],
       "postUpgradeTasks": {
         "commands": [
           "sed \"s|^version: .*$|version: $(npx -q -y -- semver -c -l {{{newVersion}}})|\" -i balena.yml"
         ],
-        "fileFilters": [
-          "balena.yml"
-        ],
+        "fileFilters": ["balena.yml"],
         "executionMode": "update"
       }
     }
