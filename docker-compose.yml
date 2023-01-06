@@ -3,7 +3,7 @@ version: "2.1"
 services:
   # https://hub.docker.com/r/homeassistant/home-assistant
   homeassistant:
-    image: homeassistant/home-assistant:2023.1.0
+    image: homeassistant/home-assistant:2023.1.1
     ports:
       - 80:8123
     volumes:
