@@ -94,15 +94,19 @@ influxdb:
 
 The Grafana dashboard should be available at <http://homeassistant.local:3000> and the default credentials are `admin/admin`.
 
-#### restic
+#### duplicati
 
-Rest easy knowing that your application data volumes are automatically and securely backed up to local or cloud storage!
+Store securely encrypted backups on cloud storage services!
 
-<https://github.com/klutchell/balena-restic>
+<https://github.com/duplicati/duplicati> via <https://docs.linuxserver.io/images/docker-duplicati>
+
+The dashboard should be available at <http://homeassistant.local:8200>.
 
 #### hostname
 
 An utility block to set the hostname of devices running balenaOS.
+
+This service is expected to remain in the `stopped` state after applying changes.
 
 <https://github.com/balenablocks/hostname>
 
@@ -118,6 +122,8 @@ Netdata is high-fidelity infrastructure monitoring and troubleshooting.
 Open-source, free, preconfigured, opinionated, and always real-time.
 
 <https://github.com/netdata/netdata>
+
+The dashboard should be available at <http://homeassistant.local:19999>.
 
 ## Contributing
 
