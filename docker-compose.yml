@@ -73,14 +73,23 @@ services:
     environment:
       SET_HOSTNAME: homeassistant
 
-  restic:
-    build: restic
-    privileged: true
-    labels:
-      io.balena.features.supervisor-api: 1
+  duplicati:
+    image: linuxserver/duplicati:v2.0.6.3-2.0.6.3_beta_2021-06-17-ls154
+    environment:
+      PUID: "0"
+      PGID: "0"
+      CLI_ARGS: --webservice-interface=any
+    ports:
+      - "8200:8200/tcp"
     volumes:
-      - restic-cache:/cache
-      - restic-snapshots:/snapshots
+      - duplicati:/config
+      - config:/volumes/config
+      - influxdb:/volumes/influxdb
+      - grafana:/volumes/grafana
+      - zigbee2mqtt:/volumes/zigbee2mqtt
+      - frigate-media:/volumes/frigate-media
+      - tailscale:/volumes/tailscale
+      - netdatalib:/volumes/netdatalib
 
   # https://blakeblackshear.github.io/frigate/installation
   frigate:
@@ -153,8 +162,7 @@ volumes:
   grafana: {}
   mqtt: {}
   zigbee2mqtt: {}
-  restic-cache: {}
-  restic-snapshots: {}
+  duplicati: {}
   frigate-media: {}
   wyze-tokens: {}
   tailscale: {}
