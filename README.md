@@ -112,6 +112,13 @@ Add your device to your [Tailscale](https://tailscale.com/) network with this bl
 
 <https://github.com/klutchell/balena-tailscale>
 
+#### netdata
+
+Netdata is high-fidelity infrastructure monitoring and troubleshooting.
+Open-source, free, preconfigured, opinionated, and always real-time.
+
+<https://github.com/netdata/netdata>
+
 ## Contributing
 
 Please open an issue or submit a pull request with any features, fixes, or changes.

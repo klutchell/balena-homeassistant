@@ -127,14 +127,36 @@ services:
       TS_EXTRA_ARGS: --reset
       REQUIRE_AUTH_KEY: "true"
 
+  netdata:
+    image: netdata/netdata:v1.37.1
+    privileged: true
+    network_mode: host
+    cap_add:
+      - SYS_PTRACE
+    security_opt:
+      - apparmor:unconfined
+    labels:
+      io.balena.features.balena-socket: 1
+      io.balena.features.procfs: 1
+      io.balena.features.supervisor-api: 1
+      io.balena.features.sysfs: 1
+    volumes:
+      - netdatalib:/var/lib/netdata
+      - netdatacache:/var/cache/netdata
+    environment:
+      DOCKER_HOST: "/var/run/balena.sock"
+      PGID: "991" # ls -nd /var/run/balena.sock | awk '{print $4}'
+
 volumes:
-  config:
-  influxdb:
-  grafana:
-  mqtt:
-  zigbee2mqtt:
-  restic-cache:
-  restic-snapshots:
-  frigate-media:
-  wyze-tokens:
-  tailscale:
+  config: {}
+  influxdb: {}
+  grafana: {}
+  mqtt: {}
+  zigbee2mqtt: {}
+  restic-cache: {}
+  restic-snapshots: {}
+  frigate-media: {}
+  wyze-tokens: {}
+  tailscale: {}
+  netdatalib: {}
+  netdatacache: {}
