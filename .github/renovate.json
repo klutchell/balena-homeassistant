@@ -11,6 +11,10 @@
         "fileFilters": ["balena.yml"],
         "executionMode": "update"
       }
+    },
+    {
+      "matchUpdateTypes": ["patch"],
+      "automerge": true
     }
   ]
 }
