@@ -112,6 +112,8 @@ services:
       CONFIG_FILE: "/config/frigate.yml"
     labels:
       io.balena.features.kernel-modules: 1
+    devices:
+      - /dev/dri:/dev/dri
 
   # https://hub.docker.com/r/mrlt8/wyze-bridge/tags
   wyze-bridge:
