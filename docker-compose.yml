@@ -27,12 +27,12 @@ services:
   # https://www.zigbee2mqtt.io/guide/getting-started/#installation
   zigbee2mqtt:
     build: zigbee2mqtt
+    restart: no
     volumes:
       - zigbee2mqtt:/app/data
     ports:
       - 7000:7000
-    devices:
-      - /dev/ttyUSB0:/dev/ttyUSB0
+    privileged: true
 
   # https://hub.docker.com/r/codercom/code-server
   code-server:
