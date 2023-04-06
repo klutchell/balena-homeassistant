@@ -83,7 +83,6 @@ services:
       - "8200:8200/tcp"
     tmpfs:
       - /tmp
-      - /var/run/
     volumes:
       - duplicati:/config
       - config:/volumes/config
