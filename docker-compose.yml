@@ -95,7 +95,7 @@ services:
 
   # https://blakeblackshear.github.io/frigate/installation
   frigate:
-    build: frigate
+    image: ghcr.io/blakeblackshear/frigate:0.12.0
     privileged: true
     ports:
       - "5000:5000"
