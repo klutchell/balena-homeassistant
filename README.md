@@ -32,6 +32,12 @@ Documentation for Home Assistant can be found at <https://www.home-assistant.io/
 
 ### Services
 
+#### esphome
+
+[ESPhome](https://esphome.io/index.html) is a system to control your ESP8266/ESP32 by simple yet powerful configuration files and control them remotely through Home Automation systems.
+
+The dashboard is running on port 6052.
+
 #### code-server
 
 [Code server](https://hub.docker.com/r/codercom/code-server) is running on port 9000 for editing YAML files directly.
