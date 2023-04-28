@@ -24,6 +24,16 @@ services:
     tmpfs:
       - /mosquitto/log
 
+# https://esphome.io/guides/getting_started_command_line.html#installation
+  esphome:
+    image: ghcr.io/esphome/esphome:2023.4.2
+    volumes:
+      - esphome:/config
+    privileged: true
+    network_mode: host
+    # ports:
+    #   - 6052:6052
+
   # https://www.zigbee2mqtt.io/guide/getting-started/#installation
   zigbee2mqtt:
     build: zigbee2mqtt
@@ -172,3 +182,4 @@ volumes:
   tailscale: {}
   netdatalib: {}
   netdatacache: {}
+  esphome: {}
