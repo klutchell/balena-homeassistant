@@ -102,6 +102,7 @@ services:
       - frigate-media:/volumes/frigate-media
       - tailscale:/volumes/tailscale
       - netdatalib:/volumes/netdatalib
+      - esphome:/volumes/esphome
 
   # https://blakeblackshear.github.io/frigate/installation
   frigate:
