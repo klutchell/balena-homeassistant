@@ -1,4 +1,4 @@
-FROM koenkk/zigbee2mqtt:1.31.0
+FROM koenkk/zigbee2mqtt:1.31.1
 
 # install default configuration for first boot
 # future changes must be made via the UI
