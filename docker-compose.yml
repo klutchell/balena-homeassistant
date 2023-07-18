@@ -3,7 +3,7 @@ version: "2.1"
 services:
   # https://hub.docker.com/r/homeassistant/home-assistant
   homeassistant:
-    image: homeassistant/home-assistant:2023.7.2
+    image: homeassistant/home-assistant:2023.7.2@sha256:27d23836fb155e9e731d2d35f3a62e4c8d8d49e97e910a661ca1de816416ca96
     network_mode: host
     volumes:
       - config:/config
@@ -25,7 +25,7 @@ services:
 
   # https://esphome.io/guides/getting_started_command_line.html#installation
   esphome:
-    image: ghcr.io/esphome/esphome:2023.6.5
+    image: ghcr.io/esphome/esphome:2023.6.5@sha256:b5f4900940d6d19018dfcd0dd90c31ba7ed4c407621b78ab34377b78e770b2ca
     volumes:
       - esphome:/config
     privileged: true
@@ -43,7 +43,7 @@ services:
 
   # https://hub.docker.com/r/codercom/code-server
   code-server:
-    image: codercom/code-server:4.14.1
+    image: codercom/code-server:4.14.1@sha256:819c4d007649cbbab1ba828fa81fd4579440ce292b3b7925716e8ceb0df104da
     command:
       - --port=9000
       - --auth=none
@@ -59,7 +59,7 @@ services:
 
   # https://hub.docker.com/_/influxdb
   influxdb:
-    image: influxdb:1.8.10
+    image: influxdb:1.8.10@sha256:27673d794041b91ed66d813160f0447ac63d1240bc188d79a3eef2097bf87a3b
     volumes:
       - influxdb:/var/lib/influxdb
     ports:
@@ -67,7 +67,7 @@ services:
 
   # https://hub.docker.com/r/grafana/grafana
   grafana:
-    image: grafana/grafana:10.0.2
+    image: grafana/grafana:10.0.2@sha256:2aa6e216f8674425d587bab7b692a941a579252f51de2f97a2a8c837e0f5e63a
     volumes:
       - grafana:/var/lib/grafana
     ports:
@@ -83,7 +83,7 @@ services:
       SET_HOSTNAME: homeassistant
 
   duplicati:
-    image: linuxserver/duplicati:v2.0.6.3-2.0.6.3_beta_2021-06-17-ls154
+    image: linuxserver/duplicati:v2.0.6.3-2.0.6.3_beta_2021-06-17-ls154@sha256:bcd89eb054ff1bce2c438d5eaab39120ab71580d44317c41a65a8e1fd91fbda5
     environment:
       PUID: "0"
       PGID: "0"
@@ -105,7 +105,7 @@ services:
 
   # https://blakeblackshear.github.io/frigate/installation
   frigate:
-    image: ghcr.io/blakeblackshear/frigate:0.12.1
+    image: ghcr.io/blakeblackshear/frigate:0.12.1@sha256:bb7f7e76a13eccef0b12704e5851cc774a12af1f12df387d6a70a796a3e938c3
     privileged: true
     ports:
       - "5000:5000"
@@ -126,7 +126,7 @@ services:
 
   # https://hub.docker.com/r/mrlt8/wyze-bridge/tags
   wyze-bridge:
-    image: mrlt8/wyze-bridge:2.3.10
+    image: mrlt8/wyze-bridge:2.3.10@sha256:3fa3dc73a9e5762e35de5d0dae12949de9759a10ba466a92b208a93233d4cea0
     volumes:
       - wyze-tokens:/tokens
 
@@ -151,7 +151,7 @@ services:
       REQUIRE_AUTH_KEY: "true"
 
   netdata:
-    image: netdata/netdata:v1.40.1
+    image: netdata/netdata:v1.40.1@sha256:1ea7e10a6f11846105bc4576e125c27809b40d940e0bc8a014fc173943928ad5
     privileged: true
     network_mode: host
     cap_add:
