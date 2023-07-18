@@ -2,6 +2,12 @@
   "extends": [
     "config:recommended"
   ],
+  "patch": {
+    "automerge": true
+  },
+  "minor": {
+    "automerge": true
+  },
   "packageRules": [
     {
       "matchPackageNames": [
@@ -9,6 +15,11 @@
       ],
       "matchBaseBranches": [
         "main"
+      ],
+      "matchUpdateTypes": [
+          "major",
+          "minor",
+          "patch"
       ],
       "postUpgradeTasks": {
         "commands": [
@@ -19,12 +30,6 @@
         ],
         "executionMode": "update"
       }
-    },
-    {
-      "matchUpdateTypes": [
-        "patch"
-      ],
-      "automerge": true
     }
   ]
 }
