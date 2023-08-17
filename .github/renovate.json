@@ -1,11 +1,18 @@
 {
   "extends": [
-    "config:recommended"
+    "config:recommended",
+    "config:best-practices",
+    ":automergeStableNonMajor",
+    ":automergePatch",
+    ":automergeDigest"
   ],
   "patch": {
     "automerge": true
   },
   "minor": {
+    "automerge": true
+  },
+  "pinDigest": {
     "automerge": true
   },
   "packageRules": [
