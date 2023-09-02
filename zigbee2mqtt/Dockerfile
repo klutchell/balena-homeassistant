@@ -1,4 +1,4 @@
-FROM koenkk/zigbee2mqtt:1.33.0@sha256:0bdd55339cbbf173575677aa574720a6e2d565260188e4a7c72f7d7ea3f74556
+FROM koenkk/zigbee2mqtt:1.33.0@sha256:62a71ec20c5a2aa7a72187be6e9e1e503a6f04c4310364fc9294be3c290ae7b2
 
 # install default configuration for first boot
 # future changes must be made via the UI
