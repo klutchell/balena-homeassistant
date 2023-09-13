@@ -3,7 +3,7 @@ version: "2.1"
 services:
   # https://hub.docker.com/r/homeassistant/home-assistant
   homeassistant:
-    image: homeassistant/home-assistant:2023.9.1@sha256:183513a13fbcb758eb525f857cf3ec69a619a5ec27c117a2077ab2f4e7a3c052
+    image: homeassistant/home-assistant:2023.9.2@sha256:223c9986ff318eaf35fac70351900cf766c15faf82fbe54150b73b7cfc3c933a
     network_mode: host
     volumes:
       - config:/config
