@@ -1,3 +1,3 @@
-FROM eclipse-mosquitto:2.0@sha256:106a8daafa3342ada299adae3778d24e43990918a79911ff9e073b9394e956d9
+FROM eclipse-mosquitto:2.0@sha256:d2381925b76bdc0c4b6fe78997b53cd4892ae97877b49dadb46042d27707672d
 
 COPY mosquitto.conf /mosquitto/config/mosquitto.conf
