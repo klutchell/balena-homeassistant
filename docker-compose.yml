@@ -67,7 +67,7 @@ services:
 
   # https://hub.docker.com/r/grafana/grafana
   grafana:
-    image: grafana/grafana:10.1.2@sha256:63854c5592bab6c7b8ac2ceb35b420925465eb24ef05f2402e4cb805253efb46
+    image: grafana/grafana:10.1.4@sha256:29f39e23705d3ef653fa84ca3c01731e0771f1fedbd69ecb99868270cdeb0572
     volumes:
       - grafana:/var/lib/grafana
     ports:
