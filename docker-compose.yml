@@ -137,25 +137,33 @@ services:
     volumes:
       - wyze-tokens:/tokens
 
-  # https://github.com/klutchell/balena-tailscale
+  # https://hub.docker.com/r/tailscale/tailscale
+  # https://github.com/tailscale/tailscale/blob/main/cmd/containerboot/main.go
+  # https://tailscale.com/kb/1282/docker
+  # https://tailscale.com/kb/1278/tailscaled
+  # https://tailscale.com/kb/1241/tailscale-up
+  # https://tailscale.com/kb/1242/tailscale-serve
+  # https://tailscale.com/kb/1311/tailscale-funnel
   tailscale:
-    build: tailscale
+    image: tailscale/tailscale:v1.54.1
+    environment:
+      TS_STATE_DIR: /var/lib/tailscale
+      TS_SOCKET: /var/run/tailscale/tailscaled.sock
+      TS_USERSPACE: false
+      TS_AUTH_ONCE: false
+      TS_HOSTNAME: homeassistant
     network_mode: host
-    restart: on-failure
-    volumes:
-      - tailscale:/var/lib/tailscale
-    labels:
-      - io.balena.features.kernel-modules=1
     cap_add:
-      - net_admin
-      - net_raw
-      - sys_module
+      - NET_ADMIN
+      - NET_RAW
+      - SYS_MODULE
+    labels:
+      io.balena.features.kernel-modules: 1
     tmpfs:
       - /tmp
-      - /var/run/
-    environment:
-      TS_EXTRA_ARGS: --reset
-      REQUIRE_AUTH_KEY: "true"
+      - /run
+    volumes:
+      - tailscale:/var/lib/tailscale
 
   netdata:
     image: netdata/netdata:v1.44.0@sha256:a1f0e22077e0258fc2ac26d133a46cc1dfbada31002610a5a283cc7edeb18e40
