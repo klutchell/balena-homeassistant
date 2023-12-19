@@ -59,7 +59,7 @@ services:
 
   # https://hub.docker.com/_/influxdb
   influxdb:
-    image: influxdb:1.8.10@sha256:f120786acb243024fcd1d5ed4ab45222f2c88ce84391bee79fae4487ff1ccb45
+    image: influxdb:1.8.10@sha256:eef0bcafd48daf97a25c3fa953aa6ccf687b5ea4535df803ab3796ce3ce2a470
     volumes:
       - influxdb:/var/lib/influxdb
     ports:
