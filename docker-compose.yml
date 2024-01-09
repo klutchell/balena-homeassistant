@@ -55,6 +55,9 @@ services:
       - 9000:9000/tcp
     volumes:
       - config:/config
+      - zigbee2mqtt:/config/zigbee2mqtt
+      - esphome:/config/esphome
+      - frigate-config:/config/frigate
     user: root
 
   # https://hub.docker.com/_/influxdb
@@ -103,7 +106,7 @@ services:
       - netdatalib:/volumes/netdatalib
       - esphome:/volumes/esphome
 
-  # https://blakeblackshear.github.io/frigate/installation
+  # https://docs.frigate.video/frigate/installation
   frigate:
     image: ghcr.io/blakeblackshear/frigate:0.12.1@sha256:bb7f7e76a13eccef0b12704e5851cc774a12af1f12df387d6a70a796a3e938c3
     privileged: true
@@ -111,14 +114,14 @@ services:
       - "5000:5000"
       - "1935:1935" # RTMP feeds
     volumes:
-      - config:/config
+      - frigate-config:/config
       - frigate-media:/media/frigate
     tmpfs:
       - /tmp/cache
     shm_size: 2048M
     environment:
       FRIGATE_RTSP_PASSWORD: "balena"
-      CONFIG_FILE: "/config/frigate.yml"
+      CONFIG_FILE: "/config/config.yml"
     labels:
       io.balena.features.kernel-modules: 1
     devices:
@@ -202,6 +205,7 @@ volumes:
   mqtt: {}
   zigbee2mqtt: {}
   duplicati: {}
+  frigate-config: {}
   frigate-media: {}
   wyze-tokens: {}
   tailscale: {}

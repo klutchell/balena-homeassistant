@@ -3,7 +3,7 @@ mqtt:
   base_topic: zigbee2mqtt
   server: mqtt://mqtt
 serial:
-  port: /dev/ttyACM0
+  port: /dev/ttyUSB0
 frontend:
   port: 7000
 advanced:
