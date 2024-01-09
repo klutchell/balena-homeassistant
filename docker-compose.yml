@@ -34,7 +34,6 @@ services:
   # https://www.zigbee2mqtt.io/guide/getting-started/#installation
   zigbee2mqtt:
     build: zigbee2mqtt
-    restart: no
     volumes:
       - zigbee2mqtt:/app/data
     ports:
