@@ -42,7 +42,7 @@ services:
 
   # https://hub.docker.com/r/codercom/code-server
   code-server:
-    image: codercom/code-server:4.21.0@sha256:0628049353bcef00cb4c913f20b3498fcd72a00d78306e01317ae09071bedfb5
+    image: codercom/code-server:4.21.0@sha256:422e697a4f25b52c71c31311e22ef0005f8f23fd5ba4e4de5ee4da5043c3fb87
     command:
       - --port=9000
       - --auth=none
