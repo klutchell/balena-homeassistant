@@ -25,7 +25,7 @@ services:
 
   # https://esphome.io/guides/getting_started_command_line.html#installation
   esphome:
-    image: ghcr.io/esphome/esphome:2024.2.1@sha256:a3c97473f2c303c29c8bd96dc9d4803de14edff5c89b6069814656c2beebe5ce
+    image: ghcr.io/esphome/esphome:2024.2.2@sha256:96e4ea5664de466af3549f28862290bbbc2bd1cadf444393c91a97256ed51ae8
     volumes:
       - esphome:/config
     privileged: true
