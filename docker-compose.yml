@@ -128,7 +128,7 @@ services:
 
   # https://hub.docker.com/r/mrlt8/wyze-bridge/tags
   wyze-bridge:
-    image: mrlt8/wyze-bridge:2.9.7@sha256:49a53f74bc209b8f6fe12e2883e02673339cfbd67f6d95e216a46b4c83a9117e
+    image: mrlt8/wyze-bridge:2.9.9@sha256:74e57d5a90a93ffe6a297381f1be9832357c7418e077de0f6f6863bbe2f6b0d4
     ports:
       # - 1935:1935 # RTMP
       # - 8554:8554 # RTSP
