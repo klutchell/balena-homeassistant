@@ -147,7 +147,7 @@ services:
   # https://tailscale.com/kb/1242/tailscale-serve
   # https://tailscale.com/kb/1311/tailscale-funnel
   tailscale:
-    image: tailscale/tailscale:v1.66.4@sha256:8c80cf92bfbc6938d05826b1aee899e629b231cecf7921bd1d72a4150e71e3f3
+    image: tailscale/tailscale:v1.68.1@sha256:a0d1a9ed2abfacf905c0e3423aea00181064162e548f875f422a03924b9cc5c4
     environment:
       TS_STATE_DIR: /var/lib/tailscale
       TS_SOCKET: /var/run/tailscale/tailscaled.sock
