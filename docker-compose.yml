@@ -84,8 +84,11 @@ services:
     environment:
       SET_HOSTNAME: homeassistant
 
+  # https://fleet.linuxserver.io/image?name=linuxserver/duplicati
+  # https://docs.linuxserver.io/images/docker-duplicati/
+  # https://hub.docker.com/r/linuxserver/duplicati
   duplicati:
-    image: linuxserver/duplicati:v2.0.6.3-2.0.6.3_beta_2021-06-17-ls154@sha256:bcd89eb054ff1bce2c438d5eaab39120ab71580d44317c41a65a8e1fd91fbda5
+    image: lscr.io/linuxserver/duplicati:2.0.8
     environment:
       PUID: "0"
       PGID: "0"
