@@ -4,7 +4,8 @@
     "config:best-practices",
     ":automergeStableNonMajor",
     ":automergePatch",
-    ":automergeDigest"
+    ":automergeDigest",
+    ":group:allNonMajor"
   ],
   "patch": {
     "automerge": true
