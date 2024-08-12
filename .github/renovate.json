@@ -5,7 +5,7 @@
     ":automergeStableNonMajor",
     ":automergePatch",
     ":automergeDigest",
-    ":group:allNonMajor"
+    "group:allNonMajor"
   ],
   "patch": {
     "automerge": true
