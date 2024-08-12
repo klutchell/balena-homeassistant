@@ -3,7 +3,7 @@ version: "2.1"
 services:
   # https://hub.docker.com/r/homeassistant/home-assistant
   homeassistant:
-    image: homeassistant/home-assistant:2024.7.4@sha256:82c37d50571cd163fc762fdd4ff5f564044af07931e7844f01c8c196dc735a0d
+    image: homeassistant/home-assistant:2024.8.1@sha256:01af627f579835945d9c67cd130aa7e6f7167a09d8ffab5d09c698f285ec8109
     network_mode: host
     volumes:
       - config:/config
@@ -110,7 +110,7 @@ services:
 
   # https://docs.frigate.video/frigate/installation
   frigate:
-    image: ghcr.io/blakeblackshear/frigate:0.13.2@sha256:2906991ccad85035b176941f9dedfd35088ff710c39d45ef1baa9a49f2b16734
+    image: ghcr.io/blakeblackshear/frigate:0.14.0@sha256:416fa4cc44fd1e40abf522ddb01defa83f2fefeca2337425c1fe1574b7f4bb14
     privileged: true
     ports:
       - "5000:5000"
