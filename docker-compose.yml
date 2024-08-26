@@ -3,7 +3,7 @@ version: "2.1"
 services:
   # https://hub.docker.com/r/homeassistant/home-assistant
   homeassistant:
-    image: homeassistant/home-assistant:2024.8.2@sha256:b5c4bef2494f84806423c0116bab2a8758c5be386e11af0d3bd7359a18ba77a7
+    image: homeassistant/home-assistant:2024.8.3@sha256:49501c175b6108e94d20a723e6a991a14389454374eba06b2c6833b1315e34b5
     network_mode: host
     volumes:
       - config:/config
@@ -131,7 +131,7 @@ services:
 
   # https://hub.docker.com/r/mrlt8/wyze-bridge/tags
   wyze-bridge:
-    image: mrlt8/wyze-bridge:2.10.1@sha256:59b10ddc729dcee10adced1ddd83e1dbe2e9ac2438b7e0cae53a8041ad330356
+    image: mrlt8/wyze-bridge:2.10.2@sha256:16459bbaec4bd8234b2b961c8504a103b8d74a92de88f0b05ffc48c31c1deb69
     ports:
       # - 1935:1935 # RTMP
       # - 8554:8554 # RTSP
