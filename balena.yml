@@ -1,5 +1,6 @@
 name: "Home Assistant"
 type: "sw.application"
+# renovate: datasource=docker depName=homeassistant/home-assistant
 version: 2024.9.2
 description: "Open source home automation that puts local control and privacy first."
 post-provisioning: >-
@@ -22,5 +23,7 @@ assets:
 data:
   defaultDeviceType: "raspberrypi4-64"
   supportedDeviceTypes:
+    - "genericx86-64-ext"
+    - "intel-nuc"
     - "raspberrypi3-64"
     - "raspberrypi4-64"
