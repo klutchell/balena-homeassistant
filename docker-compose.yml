@@ -61,7 +61,7 @@ services:
 
   # https://hub.docker.com/_/influxdb
   influxdb:
-    image: influxdb:1.8.10@sha256:2d4846756ff07787af6cbb62c60d2b130734ed1ffaeab878daeea7fd8dc362d2
+    image: influxdb:1.8.10@sha256:99127cde795316c9c3fe0346992a508402bec44a1ecadea0064c82b9df84b901
     volumes:
       - influxdb:/var/lib/influxdb
     ports:
@@ -88,7 +88,7 @@ services:
   # https://docs.linuxserver.io/images/docker-duplicati/
   # https://hub.docker.com/r/linuxserver/duplicati
   duplicati:
-    image: lscr.io/linuxserver/duplicati:2.0.8@sha256:055e49164e30becc284e93b8f889d89f24a4799733af5499825960ba5376e500
+    image: lscr.io/linuxserver/duplicati:2.0.8@sha256:51ca905dffe2ba89ccf3f220c00241a543ba67f326405efe349af95e2d8b1ef8
     environment:
       PUID: "0"
       PGID: "0"
