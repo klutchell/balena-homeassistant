@@ -15,13 +15,13 @@ assets:
   repository:
     type: "blob.asset"
     data:
-      url: "https://github.com/klutchell/balena-homeassistant"
+      url: "https://github.com/alvarozornoza/balena-homeassistant"
   logo:
     type: "blob.asset"
     data:
-      url: "https://raw.githubusercontent.com/klutchell/balena-homeassistant/main/logo.png"
+      url: "https://raw.githubusercontent.com/alvarozornoza/balena-homeassistant/main/logo.png"
 data:
-  defaultDeviceType: "raspberrypi4-64"
+  defaultDeviceType: "raspberrypi3-64"
   supportedDeviceTypes:
     - "genericx86-64-ext"
     - "intel-nuc"
