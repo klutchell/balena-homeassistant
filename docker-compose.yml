@@ -60,12 +60,21 @@ services:
     user: root
 
   # https://hub.docker.com/_/influxdb
+  # https://www.home-assistant.io/integrations/influxdb/
   influxdb:
-    image: influxdb:1.11.7@sha256:b5efc528ee424e37716ce4596d32ad74cb595a4014741b25860e24feacb9868f
+    image: influxdb:2.7.10-alpine
+    environment:
+      DOCKER_INFLUXDB_INIT_MODE: setup
+      DOCKER_INFLUXDB_INIT_USERNAME: homeassistant
+      DOCKER_INFLUXDB_INIT_PASSWORD: homeassistant # changeme via fleet/device env vars
+      DOCKER_INFLUXDB_INIT_ORG: homeassistant
+      DOCKER_INFLUXDB_INIT_BUCKET: homeassistant
+      DOCKER_INFLUXDB_INIT_RETENTION: 90d
     volumes:
-      - influxdb:/var/lib/influxdb
+      - influxdb-data:/var/lib/influxdb2
+      - influxdb-config:/etc/influxdb2
     ports:
-      - 8086:8086
+      - 127.0.0.1:8086:8086
 
   # https://hub.docker.com/r/grafana/grafana
   grafana:
@@ -100,7 +109,8 @@ services:
     volumes:
       - duplicati:/config
       - config:/volumes/config
-      - influxdb:/volumes/influxdb
+      - influxdb-data:/volumes/influxdb-data
+      - influxdb-config:/volumes/influxdb-config
       - grafana:/volumes/grafana
       - zigbee2mqtt:/volumes/zigbee2mqtt
       - frigate-media:/volumes/frigate-media
@@ -205,7 +215,8 @@ services:
 
 volumes:
   config: {}
-  influxdb: {}
+  influxdb-data: {}
+  influxdb-config: {}
   grafana: {}
   mqtt: {}
   zigbee2mqtt: {}
