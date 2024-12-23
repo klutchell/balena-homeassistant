@@ -194,7 +194,7 @@ services:
         /usr/local/bin/containerboot
 
   netdata:
-    image: netdata/netdata:v2.0.3@sha256:398529c0903a0b0922687b135defe6fc70a1f8fb9628b8053a045395ee09bbba
+    image: netdata/netdata:v2.1.0@sha256:fc0f7e7c6f042828f9e7370b9e6f41da30b328009ac5ab977b5578e806e83062
     privileged: true
     network_mode: host
     cap_add:
