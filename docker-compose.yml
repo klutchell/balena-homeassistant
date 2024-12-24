@@ -142,6 +142,25 @@ services:
     devices:
       - /dev/dri:/dev/dri
 
+  # https://github.com/home-assistant-libs/python-matter-server/blob/main/docs/docker.md
+  matter-server:
+    image: ghcr.io/home-assistant-libs/python-matter-server:7.0.0
+    # Required for mDNS to work correctly
+    network_mode: host
+    security_opt:
+      # Required for Bluetooth via D-Bus
+      - apparmor:unconfined
+    volumes:
+      - matter-server:/data/
+    environment:
+      # Required for Bluetooth via D-Bus
+      DBUS_SYSTEM_BUS_ADDRESS: unix:path=/host/run/dbus/system_bus_socket
+    labels:
+      # Required for Bluetooth via D-Bus
+      io.balena.features.dbus: '1'
+    # If you adjust command line, make sure to pass the default CMD arguments too:
+    #command: --storage-path /data --paa-root-cert-dir /data/credentials --bluetooth-adapter 0
+
   # https://hub.docker.com/r/mrlt8/wyze-bridge/tags
   wyze-bridge:
     image: mrlt8/wyze-bridge:2.10.3@sha256:af2d638a6d6d52e15ddcfb711e5b905e484b1f519986ad33b9be562b6277b987
@@ -228,3 +247,4 @@ volumes:
   netdatalib: {}
   netdatacache: {}
   esphome: {}
+  matter-server: {}
