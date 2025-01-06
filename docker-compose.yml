@@ -144,7 +144,7 @@ services:
 
   # https://github.com/home-assistant-libs/python-matter-server/blob/main/docs/docker.md
   matter-server:
-    image: ghcr.io/home-assistant-libs/python-matter-server:7.0.0
+    image: ghcr.io/home-assistant-libs/python-matter-server:7.0.1@sha256:828c1cd3f957bb0287a099a439505457a25f5d65ed34281acf19cfbf537fe346
     # Required for mDNS to work correctly
     network_mode: host
     security_opt:
