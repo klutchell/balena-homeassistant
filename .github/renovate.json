@@ -1,9 +1,13 @@
 {
-  "extends": ["github>klutchell/renovate-config"],
+  "extends": [
+    "github>klutchell/renovate-config"
+  ],
   "packageRules": [
     {
-      "matchPackagePatterns": ["codercom/code-server"],
-      "automerge": false
+      "automerge": false,
+      "matchPackageNames": [
+        "/codercom/code-server/"
+      ]
     }
   ]
 }
