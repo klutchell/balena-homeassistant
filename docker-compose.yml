@@ -62,7 +62,7 @@ services:
   # https://hub.docker.com/_/influxdb
   # https://www.home-assistant.io/integrations/influxdb/
   influxdb:
-    image: influxdb:2.7.11-alpine@sha256:ef14203d7014ac9a0df4f087d186901ea7d19993410b35782f6c3c421738eb25
+    image: influxdb:2.7.12-alpine@sha256:ef14203d7014ac9a0df4f087d186901ea7d19993410b35782f6c3c421738eb25
     environment:
       DOCKER_INFLUXDB_INIT_MODE: setup
       DOCKER_INFLUXDB_INIT_USERNAME: homeassistant
