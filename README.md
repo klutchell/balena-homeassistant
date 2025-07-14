@@ -50,10 +50,6 @@ The dashboard is running on port 6052.
 
 [Zigbee2MQTT](https://www.zigbee2mqtt.io/) supports various Zigbee adapters and the Web UI is on port 7000.
 
-#### frigate
-
-[Frigate](https://docs.frigate.video/) is a complete and local NVR designed for Home Assistant with AI object detection. The Web UI is on port 5000.
-
 #### wyze-bridge
 
 Docker container to expose a local RTMP, RTSP, and HLS or Low-Latency HLS stream for ALL your Wyze cameras including the outdoor and doorbell cams. No third-party or special firmware required.
