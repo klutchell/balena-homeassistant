@@ -56,46 +56,6 @@ Docker container to expose a local RTMP, RTSP, and HLS or Low-Latency HLS stream
 
 <https://github.com/mrlt8/docker-wyze-bridge>
 
-#### influxdb & grafana
-
-You may optionally duplicate the Home Assistant sensor data to an
-influx database and generate graphs in the Grafana dashboard.
-
-Start by opening a terminal to the `influxdb` service and creating
-a database and user credentials.
-
-```bash
-influx
-
-create database homeassistant
-show databases
-
-create user homeassistant with password 'homeassistant'
-show users
-
-grant all on homeassistant to homeassistant
-exit
-```
-
-Then the following block to your Home Assistant configuration.yml to
-transfer all state changes to an external InfluxDB database
-
-```yaml
-# https://www.home-assistant.io/integrations/influxdb/
-influxdb:
-  host: influxdb
-  port: 8086
-  database: homeassistant
-  username: !secret influxdb_user
-  password: !secret influxdb_password
-  max_retries: 3
-  include:
-    domains:
-      - sensor
-```
-
-The Grafana dashboard should be available at <http://homeassistant.local:3000> and the default credentials are `admin/admin`.
-
 #### hostname
 
 An utility block to set the hostname of devices running balenaOS.
