@@ -92,30 +92,6 @@ services:
     environment:
       SET_HOSTNAME: homeassistant
 
-  # https://fleet.linuxserver.io/image?name=linuxserver/duplicati
-  # https://docs.linuxserver.io/images/docker-duplicati/
-  # https://hub.docker.com/r/linuxserver/duplicati
-  duplicati:
-    image: lscr.io/linuxserver/duplicati:2.1.0@sha256:9930a77fb0a9c9d7973e961e46ee83d87e8f0a4e27637099b9f9bc953445856c
-    environment:
-      PUID: "0"
-      PGID: "0"
-      CLI_ARGS: --webservice-interface=any
-    ports:
-      - "8200:8200/tcp"
-    tmpfs:
-      - /tmp
-    volumes:
-      - duplicati:/config
-      - config:/volumes/config
-      - influxdb-data:/volumes/influxdb-data
-      - influxdb-config:/volumes/influxdb-config
-      - grafana:/volumes/grafana
-      - zigbee2mqtt:/volumes/zigbee2mqtt
-      - tailscale:/volumes/tailscale
-      - netdatalib:/volumes/netdatalib
-      - esphome:/volumes/esphome
-
   # https://github.com/home-assistant-libs/python-matter-server/blob/main/docs/docker.md
   matter-server:
     image: ghcr.io/home-assistant-libs/python-matter-server:8.0.0@sha256:8fd1ea29ab5eca1c5e87cb983c9797b469ad315f6667c73a28b2c4c23a75923c
@@ -213,7 +189,6 @@ volumes:
   grafana: {}
   mqtt: {}
   zigbee2mqtt: {}
-  duplicati: {}
   wyze-tokens: {}
   tailscale: {}
   netdatalib: {}

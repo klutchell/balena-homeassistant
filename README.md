@@ -96,14 +96,6 @@ influxdb:
 
 The Grafana dashboard should be available at <http://homeassistant.local:3000> and the default credentials are `admin/admin`.
 
-#### duplicati
-
-Store securely encrypted backups on cloud storage services!
-
-<https://github.com/duplicati/duplicati> via <https://docs.linuxserver.io/images/docker-duplicati>
-
-The dashboard should be available at <http://homeassistant.local:8200>.
-
 #### hostname
 
 An utility block to set the hostname of devices running balenaOS.
