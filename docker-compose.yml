@@ -61,7 +61,7 @@ services:
   # https://hub.docker.com/_/influxdb
   # https://www.home-assistant.io/integrations/influxdb/
   influxdb:
-    image: influxdb:2.7.12-alpine@sha256:ef14203d7014ac9a0df4f087d186901ea7d19993410b35782f6c3c421738eb25
+    image: influxdb:2.7.12-alpine@sha256:d948cd7aa274696d76ccc3f7ef732180d9f9a4229aace3cf68ae008693665137
     environment:
       DOCKER_INFLUXDB_INIT_MODE: setup
       DOCKER_INFLUXDB_INIT_USERNAME: homeassistant
@@ -96,7 +96,7 @@ services:
   # https://docs.linuxserver.io/images/docker-duplicati/
   # https://hub.docker.com/r/linuxserver/duplicati
   duplicati:
-    image: lscr.io/linuxserver/duplicati:2.1.0@sha256:ba454caba44068b061b09fbba0258513e8678cbc06eeaba24fde1d68e08f859d
+    image: lscr.io/linuxserver/duplicati:2.1.0@sha256:9930a77fb0a9c9d7973e961e46ee83d87e8f0a4e27637099b9f9bc953445856c
     environment:
       PUID: "0"
       PGID: "0"
