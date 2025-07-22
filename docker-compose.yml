@@ -115,33 +115,11 @@ services:
     volumes:
       - tailscale:/var/lib/tailscale
 
-  netdata:
-    image: netdata/netdata:v2.6.0@sha256:0bfe3c314152fe91cc5f22f59f40b76667e4e785e7be6b159517fefb7a158346
-    privileged: true
-    network_mode: host
-    cap_add:
-      - SYS_PTRACE
-    security_opt:
-      - apparmor:unconfined
-    labels:
-      io.balena.features.balena-socket: 1
-      io.balena.features.procfs: 1
-      io.balena.features.supervisor-api: 1
-      io.balena.features.sysfs: 1
-    volumes:
-      - netdatalib:/var/lib/netdata
-      - netdatacache:/var/cache/netdata
-    environment:
-      DOCKER_HOST: "/var/run/balena.sock"
-      PGID: "991" # ls -nd /var/run/balena.sock | awk '{print $4}'
-
 volumes:
   config: {}
   mqtt: {}
   zigbee2mqtt: {}
   wyze-tokens: {}
   tailscale: {}
-  netdatalib: {}
-  netdatacache: {}
   esphome: {}
   matter-server: {}
