@@ -54,8 +54,8 @@ services:
       - 9000:9000/tcp
     volumes:
       - config:/config
-      - zigbee2mqtt:/config/zigbee2mqtt
-      - esphome:/config/esphome
+      - zigbee2mqtt:/zigbee2mqtt
+      - esphome:/esphome
     user: root
 
   # https://github.com/balenablocks/hostname
@@ -99,63 +99,21 @@ services:
     volumes:
       - wyze-tokens:/tokens
 
-  # https://hub.docker.com/r/tailscale/tailscale
-  # https://github.com/tailscale/tailscale/blob/main/cmd/containerboot/main.go
-  # https://tailscale.com/kb/1282/docker
-  # https://tailscale.com/kb/1278/tailscaled
-  # https://tailscale.com/kb/1241/tailscale-up
-  # https://tailscale.com/kb/1242/tailscale-serve
-  # https://tailscale.com/kb/1311/tailscale-funnel
+  # https://github.com/klutchell/balena-tailscale
   tailscale:
-    image: tailscale/tailscale:v1.84.3@sha256:f97ea471667bd94023f76e228c5be0b95564cdba2f9501cb084eeef139d8b65e
-    environment:
-      TS_STATE_DIR: /var/lib/tailscale
-      TS_SOCKET: /var/run/tailscale/tailscaled.sock
-      TS_USERSPACE: false
-      TS_AUTH_ONCE: false
-      TS_HOSTNAME: homeassistant
+    build: tailscale
+    restart: on-failure
     network_mode: host
     cap_add:
       - NET_ADMIN
-      - NET_RAW
       - SYS_MODULE
     labels:
       io.balena.features.kernel-modules: 1
     tmpfs:
       - /tmp
-      - /run
+      - /var/run/
     volumes:
       - tailscale:/var/lib/tailscale
-    entrypoint:
-      - /bin/sh
-      - -c
-    command:
-      - |
-        modprobe tun || true
-        modprobe wireguard || true
-        mkdir -p /dev/net
-        [ ! -c /dev/net/tun ] && mknod /dev/net/tun c 10 200
-        /usr/local/bin/containerboot
-
-  netdata:
-    image: netdata/netdata:v2.6.0@sha256:0bfe3c314152fe91cc5f22f59f40b76667e4e785e7be6b159517fefb7a158346
-    privileged: true
-    network_mode: host
-    cap_add:
-      - SYS_PTRACE
-    security_opt:
-      - apparmor:unconfined
-    labels:
-      io.balena.features.balena-socket: 1
-      io.balena.features.procfs: 1
-      io.balena.features.supervisor-api: 1
-      io.balena.features.sysfs: 1
-    volumes:
-      - netdatalib:/var/lib/netdata
-      - netdatacache:/var/cache/netdata
-    environment:
-      DOCKER_HOST: "/var/run/balena.sock"
-      PGID: "991" # ls -nd /var/run/balena.sock | awk '{print $4}'
 
 volumes:
   config: {}
@@ -163,7 +121,5 @@ volumes:
   zigbee2mqtt: {}
   wyze-tokens: {}
   tailscale: {}
-  netdatalib: {}
-  netdatacache: {}
   esphome: {}
   matter-server: {}
