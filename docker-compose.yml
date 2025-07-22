@@ -54,8 +54,8 @@ services:
       - 9000:9000/tcp
     volumes:
       - config:/config
-      - zigbee2mqtt:/config/zigbee2mqtt
-      - esphome:/config/esphome
+      - zigbee2mqtt:/zigbee2mqtt
+      - esphome:/esphome
     user: root
 
   # https://github.com/balenablocks/hostname
