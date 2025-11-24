@@ -15,7 +15,7 @@ jobs:
         fleet: [gh_klutchell/homeassistant-aarch64, gh_klutchell/homeassistant-amd64]
 
     steps:
-      - uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5
+      - uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v6
       - uses: balena-io/deploy-to-balena-action@63a685c4b9c898c38e66776284a78c4e50ec8c97 # v2.0.136
         with:
           balena_token: ${{ secrets.BALENA_API_KEY }}
