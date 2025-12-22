@@ -1,7 +1,7 @@
 name: "Home Assistant"
 type: "sw.application"
 # renovate: datasource=docker depName=homeassistant/home-assistant
-version: 2025.12.3
+version: 2025.12.4
 description: "Open source home automation that puts local control and privacy first."
 post-provisioning: >-
   ## Usage instructions
