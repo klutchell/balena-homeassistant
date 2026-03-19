@@ -33,11 +33,11 @@ services:
 
   # https://www.zigbee2mqtt.io/guide/getting-started/#installation
   zigbee2mqtt:
-    build: zigbee2mqtt
+    image: koenkk/zigbee2mqtt:2.5.1@sha256:1e639d3144960f246dcecc21d993169fd6844b5817e939bca498b2abf2c23159
     volumes:
       - zigbee2mqtt:/app/data
     ports:
-      - 7000:7000
+      - 7000:8080
     privileged: true
 
   # https://hub.docker.com/r/codercom/code-server
