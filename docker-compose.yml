@@ -33,7 +33,7 @@ services:
 
   # https://www.zigbee2mqtt.io/guide/getting-started/#installation
   zigbee2mqtt:
-    image: koenkk/zigbee2mqtt:2.5.1@sha256:1e639d3144960f246dcecc21d993169fd6844b5817e939bca498b2abf2c23159
+    image: koenkk/zigbee2mqtt:2.9.1@sha256:574b2bd0dcbb59fae6edbbb81a35b5563291d3825da0225f0078aa5575dac37f
     volumes:
       - zigbee2mqtt:/app/data
     ports:
