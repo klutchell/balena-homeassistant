@@ -2,8 +2,8 @@
 ARG BALENA_ARCH=%%BALENA_ARCH%%
 
 # https://github.com/klutchell/balena-tailscale
-FROM bh.cr/gh_klutchell/tailscale-amd64/78f659408bdfb5444498f660fe1e2f86:1.96.4-rev3 AS balena-tailscale-amd64
-FROM bh.cr/gh_klutchell/tailscale-aarch64/fd7f04a79e5064a365a126cf40ab9ce9:1.96.4-rev3 AS balena-tailscale-aarch64
+FROM bh.cr/gh_klutchell/tailscale-amd64/1d6038fc84f213b632aef1ea7461e70e:1.96.4-rev4 AS balena-tailscale-amd64
+FROM bh.cr/gh_klutchell/tailscale-aarch64/0b31e8110655157638d91449e7b614c3:1.96.4-rev4 AS balena-tailscale-aarch64
 
 # hadolint ignore=DL3006
 FROM balena-tailscale-${BALENA_ARCH}
