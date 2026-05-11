@@ -72,9 +72,6 @@ services:
     image: ghcr.io/home-assistant-libs/python-matter-server:8.1.0@sha256:170aa093ce91c76cde4cc390918307590f0f5558fcec93f913af3cb019e6562a
     # Required for mDNS to work correctly
     network_mode: host
-    security_opt:
-      # Required for Bluetooth via D-Bus
-      - apparmor:unconfined
     volumes:
       - matter-server:/data/
     environment:
